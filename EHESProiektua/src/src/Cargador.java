@@ -14,7 +14,7 @@ public class Cargador {
     }
         //Datuak komando lerrotik kargatu dira.
         //Klase honek metodo bakarra izango du eta metodo honen bidez datuak kargatu eta
-        //prestatuko dira.
+        //Prestatuko dira.
 	
     public Instances cargarArchivo(String args){              
 	    // 1.2. Open the file
