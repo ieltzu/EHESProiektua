@@ -20,39 +20,27 @@
   %Inicio del cuerpo del documento
 \begin{document}
 \newpage
-\maketitle\begin{center}
-	\includegraphics[width=10cm]{portada.png} \\
-	\caption{ Grafico}\end{center}
+\maketitle
+\begin{center}
+	\includegraphics[width=10cm]{img/portada.png} 
+\end{center}
 \newpage
 \section{Azaleko Orria / Aurkibidea}
 \begin{enumerate}
 	\item {\sc Azaleko Orria / Aurkibidea\dotfill 2}
+	\item {\sc }
 \end{enumerate}
-\newpage
-\section{PROBANDO}
-\begin{center}{ \fboxsep 12pt\fbox{	\begin{minipage}[t]{14cm}		\begin{description}			\item[Algoritmoa:] NombreAlgoritmo (Entrenatzeko Instantziak: $Z$)
-			\item[Aurre-baldintzak:] $Z$\hspace{1cm}$|Z| = N$
- 			\item[Emaitza:] Erabaki Zuhaitza: $T$
-			\item[Begin] :\\	if( $Z$ multzoko instantzia guztiak klase berekoak dira ($C$) )\{ \\
-	.\hspace{1cm}return $T$(nodo terminala (hostoa) $C$-rekin etiketatua) \\
-	\} else \{ \\
-	.\hspace{1cm}Haukeratu informazio gehien eskaintzen duen aldagaia $Xr (Xr = \{xr^1, ..., xr^nr\})$ \\
-	.\hspace{1cm}.... \\
-	.\hspace{1cm}return $T$(lotu error $Xr nr$ azpi-zuhaitzarekin: $T1, ..., Tnr$) \\
-	\} \\
-			\item[End]		\end{description}	\end{minipage}}}\end{center}
 \newpage
 \section{Esparru Teorikoa}
 \begin{enumerate}
 	\item Dokumentazio eta sintesi lana landutako ikasketa teknikari buruz, alegia:
-	\begin{enumerate}[a)]
+	\begin{enumerate}
 	\item Support Vector Machines(SVM)
 	\item Multilayer Perceptron (MP)
 	\item Bayes Network (BayesNet)
 	\end{enumerate}
 	\item Diseinua laburbildu eta atazen banaketa taldekideen artean eman. Javan garatu den programaren diseinua eta inplementazioari buruzko xehetasun aipagarrienak.
 \end{enumerate}
-\newpage
 \section{Esparru Esperimentala}
 \begin{enumerate}
 	\item Datuak: datuen deskribapen kualitatibo eta kuantitatiboa 2. ariketako emaitzaksartu.
@@ -60,16 +48,17 @@
 	\item Emaitza esperimentalak: ereduek eskaintzen duten kalitatea aztertu. ...
 	\item Exekutagarrien exekuzio adibide bat (ikusi 5.1. atala).	
 \end{enumerate}
-\newpage
 \section{Ondorioak eta etorkizunerako lana}
 laburbildu lanaren sendotasunak eta ahuleziak.
 Aipatu lan honen bitartez atera daitezkeen ondorio nagusiak (bizpahiru). Aipatu nola
 hobetu ahal den lan hau berriro hasiko bagina
-\newpage
 \section{Bibliografia}
 Bibliografia edukia indartu edo sostengatzeko emanda dago. Ezinbestekoa
 da iturri bibliografikoak aipatzea erabili edo horietara jotzen garen puntuan bertan. Ez ahaztu irudien iturria aipatzen. Testuan zehar esplizituki aipatu ez den iturririk ez sartu Bibliografia atalean. Iturria aipatzean zehaztu ahalbait gehien (liburuko kapitulua edo atala eman), honela beste irakurle batek sakondu ahal izango du iturri horiek kontsultatu.
-\newpage
+\begin{itemize}
+	\item {\sc \textbf{Multilayer Perceptron:}} Data Mining - Practical Machine Learning Tools and Techniques (3rd Ed) (Page 232)
+\end{itemize}
+
 \section{Balorazio Subjektiboa}
 (borondatezkoa) eranskin batean atazari buruzko hausnarketa egin. Honako puntuak lagungarriak izan daitezke baina ez dira derrigorrezkoak, beste batzuk ere sar daitezke.
 \begin{enumerate}
@@ -78,5 +67,27 @@ da iturri bibliografikoak aipatzea erabili edo horietara jotzen garen puntuan be
 	\item Talde-lana erabilgarria izan da ataza ebazteko?
 	\item Zer sortarazi dizue interesik handiena? Ikasleengan interesa eta motibazioa pizteko iradokizunak eman.   
 \end{enumerate}
-      
+\newpage
+\section{PROBANDO}
+\begin{center}
+{ \fboxsep 12pt
+\fbox{
+	\begin{minipage}[t]{14cm}
+		\begin{description}
+			\item[Algoritmoa:] NombreAlgoritmo (Entrenatzeko Instantziak: $Z$)
+			\item[Aurre-baldintzak:] $Z$\hspace{1cm}$|Z| = N$
+ 			\item[Emaitza:] Erabaki Zuhaitza: $T$
+			\item[Begin] :\\
+	if( $Z$ multzoko instantzia guztiak klase berekoak dira ($C$) )\{ \\
+	.\hspace{1cm}return $T$(nodo terminala (hostoa) $C$-rekin etiketatua) \\
+	\} else \{ \\
+	.\hspace{1cm}Haukeratu informazio gehien eskaintzen duen aldagaia $Xr (Xr = \{xr^1, ..., xr^nr\})$ \\
+	.\hspace{1cm}.... \\
+	.\hspace{1cm}return $T$(lotu error $Xr nr$ azpi-zuhaitzarekin: $T1, ..., Tnr$) \\
+	\} \\
+			\item[End]
+		\end{description}
+	\end{minipage}
+}}
+\end{center}
 \end{document}

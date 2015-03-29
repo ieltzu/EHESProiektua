@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.26)  27 MAR 2015 23:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.26)  29 MAR 2015 18:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -237,62 +237,60 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 23.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<portada.png, id=1, 478.78876pt x 298.11375pt>
-File: portada.png Graphic file (type png)
- <use portada.png>
-Package pdftex.def Info: portada.png used on input line 25.
+<img/portada.png, id=1, 478.78876pt x 298.11375pt>
+File: img/portada.png Graphic file (type png)
+ <use img/portada.png>
+Package pdftex.def Info: img/portada.png used on input line 25.
 (pdftex.def)             Requested size: 284.52756pt x 177.15926pt.
 
-
-./dokuEHESProiektua.tex:26: LaTeX Error: \caption outside float.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.26 	\caption
-              { Grafico}
-? 
 [1
 
-{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./porta
-da.png>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./img/p
+ortada.png>] [2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 59.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
 \T1/cmr/m/n/10 . Hauk-er-atu in-for-mazio gehien es-kaintzen duen alda-gaia $\O
 ML/cmm/m/it/10 Xr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Xr \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
+Underfull \hbox (badness 10000) in paragraph at lines 91--91
 
  []
 
-[3] [4] [5] [6] [7] [8] (./dokuEHESProiektua.aux) ) 
+[4] (./dokuEHESProiektua.aux) ) 
 Here is how much of TeX's memory you used:
- 2669 strings out of 493117
- 34650 string characters out of 6135433
- 90975 words of memory out of 5000000
- 6078 multiletter control sequences out of 15000+600000
- 15907 words of font info for 53 fonts, out of 8000000 for 9000
+ 2689 strings out of 493117
+ 34994 string characters out of 6135433
+ 92975 words of memory out of 5000000
+ 6093 multiletter control sequences out of 15000+600000
+ 16596 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,6n,26p,383b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2014/tex
-mf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2014/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fon
-ts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2014/texmf-dist/fonts
-/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/t
-ype1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1
-/public/cm-super/sfrm1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/p
-ublic/cm-super/sfrm1728.pfb>
-Output written on dokuEHESProiektua.pdf (8 pages, 175410 bytes).
+{/usr/local/texlive/2014/texmf-dist/fonts/enc/dv
+ips/cm-super/cm-super-t1.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr7.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-s
+uper/sfbx1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-sup
+er/sfbx1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super
+/sfcc1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/s
+frm1000.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfr
+m1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1
+728.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc100
+0.pfb>
+Output written on dokuEHESProiektua.pdf (4 pages, 186287 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
- 55 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 48 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
