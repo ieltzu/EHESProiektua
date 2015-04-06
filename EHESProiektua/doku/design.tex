@@ -13,6 +13,7 @@
   \usepackage[T1]{fontenc}
   \usepackage[latin1]{inputenc}
   \usepackage{graphicx}
+  \usepackage{pstricks}
   \title{Diseinua}
   \author{Ieltzu Irazu, Mikel de Velasco, Jorge Nieto}
   \date{29 de enero de 2010}
@@ -28,66 +29,32 @@
 \section{Azaleko Orria / Aurkibidea}
 \begin{enumerate}
 	\item {\sc Azaleko Orria / Aurkibidea\dotfill 2}
-	\item {\sc }
+	\item {\sc Aurkezpena\dotfill 3}
+	\item {\sc Klaseen diseinua\dotfill 3}
 \end{enumerate}
 \newpage
-\section{Esparru Teorikoa}
+\section{Aurkezpena}
+Dokumentu honen bidez, 	
+Multilayer Perceptron eta Naive Bayes eredu igarleak konparatzen ditu.
+\section{Klaseen diseinua}
+Proiektua hiru atal nagusitan banandu dugu. Lehenengoan, datuak aurreprozezatzen dira, bigarrenean, eredua aterako da eta azkenik instantzia berriak ebaluatzeko jarriko dugu.
 \begin{enumerate}
-	\item Dokumentazio eta sintesi lana landutako ikasketa teknikari buruz, alegia:
-	\begin{enumerate}
-	\item Support Vector Machines(SVM)
-	\item Multilayer Perceptron (MP)
-	\item Bayes Network (BayesNet)
-	\end{enumerate}
-	\item Diseinua laburbildu eta atazen banaketa taldekideen artean eman. Javan garatu den programaren diseinua eta inplementazioari buruzko xehetasun aipagarrienak.
+	\item \textbf{Aurreprozezamendua} \\
+		Atal honetan, bereiziki ``R-weka.filters.unsupervised.attribute.Obfuscate'' relation-a duten arff fitxategiekin (praktika honetan lan egin behar zirenak) lan egingo dugu. Horregatik behean aipatzen diren filtroak praktika honekin lan egiteko daude. \\
+		Aurre prozezamenduan horrengo klase eta metodoak erabiliko ditugu.
+		\begin{enumerate}
+			\item {\bf Aurreprozezamendua:}\\
+			Klase hau, {\red aurreprozezamendua.jar} exekutagarriak egikarituko duen lehenengo klasea izango da, beraz klase nagusia izango da.\\
+			Bere metodoa hurrengoa da:
+			\begin{itemize}
+				\item {\bf main}\\
+				``main'' metodoan, argumentu bezala consolatik {\blue train.arff} eta {\blue dev.arff} fitxategiak pasatuko dizkiogu, eta nahi izanez gero (instantzia asko badira) 0-100 arteko zenbaki bat pasatu ahal izango diogu, zenbaki honek instantzia kopuru gutxiagorekin lan egiteko izango da (adb: 70 pasatzen badiogu instantzien \%70-rekin lan egingo dugu).\\
+				Klase honetan metodo bakarra egotea erabaki dugu. Wekak dituen liburutegiak filtroen klseak dituztelako eta `main' metodo honetan, filtro guztiak aplikatuko ditugu:
+				\begin{enumerate}
+					\item {\bf Filtro1:}\\
+					Este es el filtro 1.
+				\end{enumerate}
+			\end{itemize}
+		\end{enumerate}
 \end{enumerate}
-\section{Esparru Esperimentala}
-\begin{enumerate}
-	\item Datuak: datuen deskribapen kualitatibo eta kuantitatiboa 2. ariketako emaitzaksartu.
-	\item Aurre-prozesamendua: erabilitako filtroak aukeratzeko motibazioa azaldu eta 3.ariketako emaitzak eman.
-	\item Emaitza esperimentalak: ereduek eskaintzen duten kalitatea aztertu. ...
-	\item Exekutagarrien exekuzio adibide bat (ikusi 5.1. atala).	
-\end{enumerate}
-\section{Ondorioak eta etorkizunerako lana}
-laburbildu lanaren sendotasunak eta ahuleziak.
-Aipatu lan honen bitartez atera daitezkeen ondorio nagusiak (bizpahiru). Aipatu nola
-hobetu ahal den lan hau berriro hasiko bagina
-\section{Bibliografia}
-Bibliografia edukia indartu edo sostengatzeko emanda dago. Ezinbestekoa
-da iturri bibliografikoak aipatzea erabili edo horietara jotzen garen puntuan bertan. Ez ahaztu irudien iturria aipatzen. Testuan zehar esplizituki aipatu ez den iturririk ez sartu Bibliografia atalean. Iturria aipatzean zehaztu ahalbait gehien (liburuko kapitulua edo atala eman), honela beste irakurle batek sakondu ahal izango du iturri horiek kontsultatu.
-\begin{itemize}
-	\item {\sc \textbf{Multilayer Perceptron:}} Data Mining - Practical Machine Learning Tools and Techniques (3rd Ed) (Page 232)
-\end{itemize}
-
-\section{Balorazio Subjektiboa}
-(borondatezkoa) eranskin batean atazari buruzko hausnarketa egin. Honako puntuak lagungarriak izan daitezke baina ez dira derrigorrezkoak, beste batzuk ere sar daitezke.
-\begin{enumerate}
-	\item Atazarekin lortu nahi ziren helburuak lortu dituzue? (ikusi 1. atala)
-	\item Batazbestean zenbat denbora eman duzue atazean lanean? Desglosatu: ikasketarako denbora, bilaketa bibliografikoa, softwarearen diseinua eta inplementazioa, txostena.
-	\item Talde-lana erabilgarria izan da ataza ebazteko?
-	\item Zer sortarazi dizue interesik handiena? Ikasleengan interesa eta motibazioa pizteko iradokizunak eman.   
-\end{enumerate}
-\newpage
-\section{PROBANDO}
-\begin{center}
-{ \fboxsep 12pt
-\fbox{
-	\begin{minipage}[t]{14cm}
-		\begin{description}
-			\item[Algoritmoa:] NombreAlgoritmo (Entrenatzeko Instantziak: $Z$)
-			\item[Aurre-baldintzak:] $Z$\hspace{1cm}$|Z| = N$
- 			\item[Emaitza:] Erabaki Zuhaitza: $T$
-			\item[Begin] :\\
-	if( $Z$ multzoko instantzia guztiak klase berekoak dira ($C$) )\{ \\
-	.\hspace{1cm}return $T$(nodo terminala (hostoa) $C$-rekin etiketatua) \\
-	\} else \{ \\
-	.\hspace{1cm}Haukeratu informazio gehien eskaintzen duen aldagaia $Xr (Xr = \{xr^1, ..., xr^nr\})$ \\
-	.\hspace{1cm}.... \\
-	.\hspace{1cm}return $T$(lotu error $Xr nr$ azpi-zuhaitzarekin: $T1, ..., Tnr$) \\
-	\} \\
-			\item[End]
-		\end{description}
-	\end{minipage}
-}}
-\end{center}
 \end{document}
