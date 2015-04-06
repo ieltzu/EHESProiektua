@@ -6,7 +6,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import weka.classifiers.Classifier;
 import weka.core.Instances;
+import weka.core.SerializedObject;
 
 public class Idazlea {
 
@@ -22,6 +24,7 @@ public class Idazlea {
 		}
 		return Idazlea.nireIdazlea;
 	}
+	
 	public void idatziInstantziak(Instances instantziak, String path){
 		File output= new File(path);
 		try {
@@ -32,7 +35,11 @@ public class Idazlea {
 			e.printStackTrace();
 		}
 	}
+	
 	public void fitxategiakEgin(ArrayList<String> datuak){
 		 
+	}
+	public void modeloaIdatzi(SerializedObject mod, Classifier cls){
+		
 	}
 }

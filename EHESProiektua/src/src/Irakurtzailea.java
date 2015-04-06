@@ -14,12 +14,14 @@ public class Irakurtzailea {
 	private Irakurtzailea(){
 		
 	}
+	
 	public static Irakurtzailea getIrakurtzailea(){
 		if(Irakurtzailea.nireIrakurtzailea==null){
 			Irakurtzailea.nireIrakurtzailea = new Irakurtzailea();
 		}
 		return Irakurtzailea.nireIrakurtzailea;
 	}
+	
 	public static Instances instantziakIrakurri(String path){
 		// 1.2. Open the file
 	    FileReader fi = null;

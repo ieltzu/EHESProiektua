@@ -35,6 +35,7 @@ public class AurreProzesadorea {
 		filtroSorta[3] = removeWithValues;
 		filtroSorta[4] = randomize;
 		filtroSorta[5] = removeUseless;
+		//remove useless y remove sirven para eliminar los atributos y instancias no deseadas TODO
 		
 		multiFilter.setFilters(filtroSorta);	
 		Instances filtratzekoInstantziak2 = null;
