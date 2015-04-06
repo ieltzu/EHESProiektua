@@ -8,6 +8,9 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import weka.classifiers.Classifier;
+import weka.classifiers.Evaluation;
+import weka.classifiers.functions.MultilayerPerceptron;
+import weka.classifiers.rules.OneR;
 import weka.core.Instances;
 import weka.core.SerializedObject;
 
@@ -37,10 +40,13 @@ public class Idazlea {
 		}
 	}
 	
-	public void fitxategiakEgin(ArrayList<String> datuak){
-		 
+	public void fitxategiaEginOneR(OneR estimador, Evaluation evaluator, int bMax, Instances devaurre, double fmeasureMediaMax, int bucketSizeEzExhaustiboa){
+		 // TODO JORGE
+	}
+	public void fitxategiaEginMultilayerPerceptron(MultilayerPerceptron estimador, Evaluation evaluator, Instances data, String hiddenlayersMax, String hidenLayerEzExhaustiboa){
+		 // TODO JORGE
 	}
 	public void modeloaIdatzi(ObjectOutputStream mod, Classifier cls){
-		
+		// TODO JORGE
 	}
 }

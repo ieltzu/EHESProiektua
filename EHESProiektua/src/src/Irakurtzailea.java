@@ -48,6 +48,7 @@ public class Irakurtzailea {
 	    return data;
 	}
 	public Classifier modeloaKargatu(){
+		// TODO JORGE
 		return null;
 	}
 	
