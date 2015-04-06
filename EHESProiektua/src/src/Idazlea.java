@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import weka.classifiers.Classifier;
@@ -39,7 +40,7 @@ public class Idazlea {
 	public void fitxategiakEgin(ArrayList<String> datuak){
 		 
 	}
-	public void modeloaIdatzi(SerializedObject mod, Classifier cls){
+	public void modeloaIdatzi(ObjectOutputStream mod, Classifier cls){
 		
 	}
 }
