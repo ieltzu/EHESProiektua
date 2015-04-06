@@ -38,9 +38,9 @@ public class Idazlea {
 	}
 	
 	public void fitxategiakEgin(ArrayList<String> datuak){
-		 
+		 // TODO JORGE
 	}
 	public void modeloaIdatzi(ObjectOutputStream mod, Classifier cls){
-		
+		// TODO JORGE
 	}
 }
