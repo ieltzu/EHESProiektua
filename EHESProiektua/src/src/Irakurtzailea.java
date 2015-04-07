@@ -22,7 +22,7 @@ public class Irakurtzailea {
 		return Irakurtzailea.nireIrakurtzailea;
 	}
 	
-	public static Instances instantziakIrakurri(String path){
+	public Instances instantziakIrakurri(String path){
 		// 1.2. Open the file
 	    FileReader fi = null;
 	    try {
@@ -47,7 +47,7 @@ public class Irakurtzailea {
 		data.setClassIndex(data.numAttributes()-1);      
 	    return data;
 	}
-	public Classifier modeloaKargatu(){
+	public Classifier modeloaKargatu(String modeloPath){
 		// TODO JORGE
 		return null;
 	}
