@@ -6,6 +6,7 @@ import weka.classifiers.Evaluation;
 import weka.classifiers.functions.MultilayerPerceptron;
 import weka.classifiers.meta.CVParameterSelection;
 import weka.classifiers.rules.OneR;
+import weka.core.Instance;
 import weka.core.Instances;
 
 public class Modeloa {
@@ -30,7 +31,7 @@ public class Modeloa {
 			estimador.setMinBucketSize(b);
 			estimador.buildClassifier(trainaurre);
 			//ebaluatzailea hasieratu
-			Evaluation evaluator = new Evaluation(trainaurre);
+			evaluator = new Evaluation(trainaurre);
 		
 			evaluator.evaluateModel(estimador, devaurre);
 			//klase minoritariaren f-measurearekin konparatuz.
@@ -51,9 +52,32 @@ public class Modeloa {
 		OneR sailk = (OneR)bilaketaEzExhaustiboa.getClassifier();
 	    int bucketSizeEzExhaustiboa= sailk.getMinBucketSize();
 	    
-		Idazlea.getIdazlea().fitxategiaEginOneR(estimador, evaluator, bMax, devaurre, fmeasureMediaMax, bucketSizeEzExhaustiboa);
-		
-		//Idazlea.getIdazlea().modeloaIdatzi(mod, cls);
+	    // train eta dev gehitu
+	    
+	    Instance trainetade;
+	    
+	    // Inferentzia
+	    
+	    estimador.setMinBucketSize(bMax);
+	    
+	    // Ez zintzoa
+	    estimador.buildClassifier(trainetadev);
+	    evaluator.evaluateModel(estimador, trainetadev);
+	    
+	    // Hold out
+	    int trainSize = (int) Math.round(trainetadev.numInstances() * 0.7);
+    	int testSize = trainetadev.numInstances() - trainSize;
+	    Instances trainetadev70 = new Instances(trainetadev, 0, trainSize);
+    	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
+	    
+	    estimador.buildClassifier(trainetadev);
+	    evaluator.evaluateModel(estimador, trainetadev);
+	    
+	    // 10 Fold cross validation
+	    
+	    
+		Idazlea.getIdazlea().fitxategiaEginOneR(estimador, evaluator, bMax, devaurre, fmeasureMediaMax, bucketSizeEzExhaustiboa);	
+		Idazlea.getIdazlea().modeloaIdatzi(mod, cls);
 		
 		// Multilayer Perceptron
 		
@@ -75,11 +99,11 @@ public class Modeloa {
 			estimadorMulti.setHiddenLayers(hiddenlayers.get(i));
 			estimadorMulti.buildClassifier(trainaurre);                      
 			
-			Evaluation evaluatorMulti = new Evaluation(trainaurre);          
-	        evaluatorMulti.evaluateModel(estimador, devaurre);
+			evaluator = new Evaluation(trainaurre);          
+	        evaluator.evaluateModel(estimador, devaurre);
 	        
 	        // klase minoritariaren fmeasurearekin konparatu
-            fmeasureMediaMulti = evaluatorMulti.weightedFMeasure();
+            fmeasureMediaMulti = evaluator.weightedFMeasure();
             if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
             	fmeasureMediaMaxMulti = fmeasureMediaMulti;
                 hiddenlayersMax =  hiddenlayers.get(i);
@@ -92,8 +116,23 @@ public class Modeloa {
 	    String hiddenLayerEzexhaustiboa= sailkMulti.getHiddenLayers();
 	    System.out.println("MultiLayer Perceptron prozesuaren emaitzak imprimatzen:");
 		
+	    //Inferentzia
+	    
+	    estimadorMulti.setHiddenLayers(hiddenlayersMax);
+	    
+	    // Ez zintzoa
+	    
+	    // Hold out
+	    
+	    // 10 Fold cross validation
+	    
+	    
 		Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron(estimadorMulti, evaluator, devaurre, hiddenlayersMax, hiddenLayerEzexhaustiboa);
-		//Idazlea.getIdazlea().modeloaIdatzi(mod, cls);
+		Idazlea.getIdazlea().modeloaIdatzi(mod, cls);
+		
+		
+		
+		
 	}
 	
 	
