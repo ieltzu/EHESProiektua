@@ -70,11 +70,12 @@ public class Modeloa {
 	    Instances trainetadev70 = new Instances(trainetadev, 0, trainSize);
     	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
 	    
-	    estimador.buildClassifier(trainetadev);
-	    evaluator.evaluateModel(estimador, trainetadev);
+	    estimador.buildClassifier(trainetadev70);
+	    evaluator.evaluateModel(estimador, trainetadev30);
 	    
 	    // 10 Fold cross validation
-	    
+	    estimador.buildClassifier(trainetadev);
+	    evaluator.
 	    
 		Idazlea.getIdazlea().fitxategiaEginOneR(estimador, evaluator, bMax, devaurre, fmeasureMediaMax, bucketSizeEzExhaustiboa);	
 		Idazlea.getIdazlea().modeloaIdatzi(mod, cls);
@@ -121,11 +122,16 @@ public class Modeloa {
 	    estimadorMulti.setHiddenLayers(hiddenlayersMax);
 	    
 	    // Ez zintzoa
+	    estimadorMulti.buildClassifier(trainetadev);
+	    evaluator.evaluateModel(estimadorMulti, trainetadev);
 	    
 	    // Hold out
+	    estimadorMulti.buildClassifier(trainetadev70);
+	    evaluator.evaluateModel(estimadorMulti, trainetadev30);
 	    
 	    // 10 Fold cross validation
-	    
+	    estimadorMulti.buildClassifier(trainetadev);
+	    evaluator.
 	    
 		Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron(estimadorMulti, evaluator, devaurre, hiddenlayersMax, hiddenLayerEzexhaustiboa);
 		Idazlea.getIdazlea().modeloaIdatzi(mod, cls);
