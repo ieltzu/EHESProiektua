@@ -2,6 +2,8 @@ package src;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -46,7 +48,17 @@ public class Idazlea {
 	public void fitxategiaEginMultilayerPerceptron(MultilayerPerceptron estimador, Evaluation evaluator, Instances data, String hiddenlayersMax, String hidenLayerEzExhaustiboa){
 		 // TODO JORGE
 	}
-	public void modeloaIdatzi(ObjectOutputStream mod, Classifier cls){
-		// TODO JORGE
+	public void modeloaIdatzi(String  path, Classifier cls){
+		ObjectOutputStream oos;
+		try {
+			oos = new ObjectOutputStream(new FileOutputStream(path));
+			oos.writeObject(cls);
+			oos.flush();
+			oos.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

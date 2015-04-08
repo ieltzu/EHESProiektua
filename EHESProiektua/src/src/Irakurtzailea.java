@@ -1,8 +1,10 @@
 package src;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import weka.classifiers.Classifier;
 import weka.core.Instances;
@@ -48,8 +50,20 @@ public class Irakurtzailea {
 	    return data;
 	}
 	public Classifier modeloaKargatu(String modeloPath){
-		// TODO JORGE
-		return null;
+		ObjectInputStream ois;
+		Classifier cls = null;
+		try {
+			ois = new ObjectInputStream(new FileInputStream(modeloPath));
+			cls = (Classifier) ois.readObject();
+			ois.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+		}
+		return cls;
 	}
 	
 
