@@ -54,7 +54,8 @@ public class Modeloa {
 	    
 	    // train eta dev gehitu
 	    
-	    Instance trainetade;
+	    Instances trainetadev=new Instances(trainaurre);
+	    trainetadev.addAll(devaurre);
 	    
 	    // Inferentzia
 	    
@@ -63,8 +64,8 @@ public class Modeloa {
 	    // Ez zintzoa
 	    estimador.buildClassifier(trainetadev);
 	    evaluator.evaluateModel(estimador, trainetadev);
-	    
-	    // Hold out
+	    Idazlea.getIdazlea().fitxategiaEginOneR(evaluator);
+	    // Hold out 70 30
 	    int trainSize = (int) Math.round(trainetadev.numInstances() * 0.7);
     	int testSize = trainetadev.numInstances() - trainSize;
 	    Instances trainetadev70 = new Instances(trainetadev, 0, trainSize);
@@ -72,6 +73,9 @@ public class Modeloa {
 	    
 	    estimador.buildClassifier(trainetadev70);
 	    evaluator.evaluateModel(estimador, trainetadev30);
+	    
+	    // hold out train dev
+	    
 	    
 	    // 10 Fold cross validation
 	    estimador.buildClassifier(trainetadev);
@@ -125,9 +129,11 @@ public class Modeloa {
 	    estimadorMulti.buildClassifier(trainetadev);
 	    evaluator.evaluateModel(estimadorMulti, trainetadev);
 	    
-	    // Hold out
+	    // Hold out 70 30
 	    estimadorMulti.buildClassifier(trainetadev70);
 	    evaluator.evaluateModel(estimadorMulti, trainetadev30);
+	    
+	    // hold out train dev
 	    
 	    // 10 Fold cross validation
 	    estimadorMulti.buildClassifier(trainetadev);

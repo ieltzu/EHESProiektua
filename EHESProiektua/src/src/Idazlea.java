@@ -42,10 +42,11 @@ public class Idazlea {
 		}
 	}
 	
-	public void fitxategiaEginOneR(OneR estimador, Evaluation evaluator, int bMax, Instances devaurre, double fmeasureMediaMax, int bucketSizeEzExhaustiboa){
-		 // TODO JORGE
+	public void fitxategiaEginOneR(Evaluation evaluator){
+		 // TODO JORGE  precision, recall eta f-measure 
+		// detailed accuracy by class
 	}
-	public void fitxategiaEginMultilayerPerceptron(MultilayerPerceptron estimador, Evaluation evaluator, Instances data, String hiddenlayersMax, String hidenLayerEzExhaustiboa){
+	public void fitxategiaEginMultilayerPerceptron(Evaluation evaluator){
 		 // TODO JORGE
 	}
 	public void modeloaIdatzi(String  path, Classifier cls){
