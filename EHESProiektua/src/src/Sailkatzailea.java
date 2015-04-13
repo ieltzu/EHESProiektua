@@ -14,7 +14,11 @@ public class Sailkatzailea {
 		String modeloPath = args[0];
 		String testPath = args[1];
 		String resultPath = (args.length >= 3) ? args[2] : "./emaitza.arff";
-		
+		sailkatu(modeloPath, testPath, resultPath);
+	}
+	
+	public static void sailkatu(String modeloPath, String testPath, String resultPath){
+		resultPath = (resultPath != null) ? resultPath : "./emaitza.arff";
 		Classifier classifier = Irakurtzailea.getIrakurtzailea().modeloaKargatu(modeloPath);
 		Instances test = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(testPath);
 		
