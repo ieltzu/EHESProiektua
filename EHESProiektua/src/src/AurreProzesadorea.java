@@ -22,18 +22,18 @@ public class AurreProzesadorea {
 		Instances filtratzekoInstantziak = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]);
 		// Crear filtro
 		Integer moztu;
-		try {
+		/*try {
 		 moztu= Integer.parseInt(args[2]);
 		 moztu = (moztu>100) ? 100:moztu;
 		 moztu = (moztu<0) ? 0:moztu;
 		 filtratzekoInstantziak = null;
 		} catch (Exception e) {
 			moztu=100;
-		}
+		}*/
 		
-		filtratzekoInstantziak.addAll(filtratzekoInstantziak.subList(0,filtratzekoInstantziak.numInstances()/100*moztu));
+		//filtratzekoInstantziak.addAll(filtratzekoInstantziak.subList(0,filtratzekoInstantziak.numInstances()/100*moztu));
 		
-		MultiFilter multiFilter = new MultiFilter();
+		/*MultiFilter multiFilter = new MultiFilter();
 		Filter[] filtroSorta = new Filter[6];
 		Discretize discretize = new Discretize();
 		InterquartileRange interquartile = new InterquartileRange();
@@ -47,16 +47,27 @@ public class AurreProzesadorea {
 		filtroSorta[3] = removeWithValues;
 		filtroSorta[4] = randomize;
 		filtroSorta[5] = removeUseless;
+		for (int i = 0; i < filtroSorta.length; i++) {
+			try {
+				filtroSorta[i].setInputFormat(filtratzekoInstantziak);
+			} catch (Exception e) {
+				System.out.println("eoeoeoe");
+				e.printStackTrace();
+			}
+
+		}
+
 		//remove useless y remove sirven para eliminar los atributos y instancias no deseadas TODO
 		
 		multiFilter.setFilters(filtroSorta);	
-		Instances filtratzekoInstantziak2 = null;
+		Instances filtratzekoInstantziak2 = filtratzekoInstantziak;
 		try {
+			
 			filtratzekoInstantziak2 = Filter.useFilter(filtratzekoInstantziak, multiFilter);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		}*/
 		
 		AttributeSelection filter= new AttributeSelection();
 		// Crear tipo de filtro
@@ -70,8 +81,8 @@ public class AurreProzesadorea {
 		Instances filtratzekoInstantziak3=null;
 				
 		try {
-			filter.setInputFormat(filtratzekoInstantziak2);
-			filtratzekoInstantziak3 = Filter.useFilter(filtratzekoInstantziak2, filter);
+			filter.setInputFormat(filtratzekoInstantziak);
+			filtratzekoInstantziak3 = Filter.useFilter(filtratzekoInstantziak, filter);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
