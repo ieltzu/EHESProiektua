@@ -63,6 +63,7 @@ public class Idazlea {
 				fw.append("ROC Area Batazbestekoa: " + roc+"\n");
 				fw.append("Correctly Classified Instances: " + accu);
 				fw.append("\n" + matriz);
+				fw.append("\n******************************************************\n");
 				fw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -92,6 +93,7 @@ public class Idazlea {
 				fw.append("ROC Area Batazbestekoa: " + roc+"\n");
 				fw.append("Correctly Classified Instances: " + accu);
 				fw.append("\n" + matriz);
+				fw.append("\n******************************************************\n");
 				fw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
