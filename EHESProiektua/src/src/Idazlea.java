@@ -35,6 +35,7 @@ public class Idazlea {
 	public void idatziInstantziak(Instances instantziak, String path){
 		File output= new File(path);
 		try {
+			output.createNewFile();
 			BufferedWriter fw= new BufferedWriter(new FileWriter(output));
 			fw.write(instantziak.toString());
 			fw.close();
@@ -105,9 +106,24 @@ public class Idazlea {
 	}
 	
 	public void modeloaIdatzi(String  path, Classifier cls){
+		FileOutputStream file = null;
+		Boolean created=false;
+		do{
+			try {
+				file = new FileOutputStream(path);
+			} catch (FileNotFoundException e1) {
+				File file1 = new File(path);
+				try {
+					created = !file1.createNewFile();
+					System.out.println(created.booleanValue());
+				} catch (IOException e) {
+					System.out.println("error");
+				}
+			}
+		}while(!created);
 		ObjectOutputStream oos;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream(path));
+			oos = new ObjectOutputStream(file);
 			oos.writeObject(cls);
 			oos.flush();
 			oos.close();

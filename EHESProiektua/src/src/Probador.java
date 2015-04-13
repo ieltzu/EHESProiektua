@@ -14,8 +14,8 @@ public class Probador {
 		 
 		 //Modeloa deituko dugu
 		 String[] paramsM = new String [2];
-		 params[0] = "ficheros/trainaurre.arff";
-		 params[1] = "ficheros/devaurre.arff";
+		 paramsM[0] = "ficheros/trainaurre.arff";
+		 paramsM[1] = "ficheros/devaurre.arff";
 		 try {
 			Modeloa.main(paramsM);
 		} catch (Exception e){
@@ -24,14 +24,14 @@ public class Probador {
 		}
 		 //Lehenengo Baseline
 		 String[] paramsS = new String [3];
-		 params[0] = "modeloak/BaselineModel.jar";
-		 params[1] = "ficheros/test.p3.obfuscated.noclass.arff";
-		 params[2] = "result/TestPredictionsBaseline.txt";
+		 paramsS[0] = "modeloak/BaselineModel.jar";
+		 paramsS[1] = "ficheros/test.p3.obfuscated.noclass.arff";
+		 paramsS[2] = "result/TestPredictionsBaseline.txt";
 		 Sailkatzailea.main(paramsS);
 		//Orain multilayer perceptron
-		 params[0] = "modeloak/MultilayerPerceptionModel.jar";
-		 params[1] = "ficheros/test.p3.obfuscated.noclass.arff";
-		 params[2] = "result/TestPredictionsMultilayerPerceptron.txt";
+		 paramsS[0] = "modeloak/MultilayerPerceptionModel.jar";
+		 paramsS[1] = "ficheros/test.p3.obfuscated.noclass.arff";
+		 paramsS[2] = "result/TestPredictionsMultilayerPerceptron.txt";
 		 Sailkatzailea.main(paramsS);
 		 
 		 
