@@ -148,17 +148,12 @@ public class Modeloa {
         
 		for (int i=0;i<hiddenlayers.size();i++){
 			//hidden layer egokiena aukeratzeko loopa, f-measure altuenaren bila.
-			System.out.println("g");
 			estimadorMulti.setHiddenLayers(hiddenlayers.get(i));
 			try{
-				System.out.println("d");
-				estimadorMulti.buildClassifier(trainaurre);
-				
-				System.out.println("a");
 				evaluator = new Evaluation(trainaurre);
-				System.out.println("1");
+				estimadorMulti.setTrainingTime(5);
+				estimadorMulti.buildClassifier(trainetadev);
 				evaluator.evaluateModel(estimadorMulti, devaurre);
-				System.out.println("2");
 				// klase minoritariaren fmeasurearekin konparatu
 				fmeasureMediaMulti = evaluator.weightedFMeasure();
 				if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
@@ -171,13 +166,13 @@ public class Modeloa {
 			System.out.println(hiddenlayers.size()-i);
 		}
 		CVParameterSelection bilaketaEzExhaustiboaMulti = new CVParameterSelection();
-		bilaketaEzExhaustiboaMulti.setClassifier(estimador);
+		bilaketaEzExhaustiboaMulti.setClassifier(estimadorMulti);
 		try{
 			bilaketaEzExhaustiboaMulti.buildClassifier(trainaurre);
 		} catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-		MultilayerPerceptron sailkMulti = (MultilayerPerceptron)bilaketaEzExhaustiboa.getClassifier();
+		MultilayerPerceptron sailkMulti = (MultilayerPerceptron)bilaketaEzExhaustiboaMulti.getClassifier();
 	    String hiddenLayerEzexhaustiboa= sailkMulti.getHiddenLayers();
 	    System.out.println("MultiLayer Perceptron prozesuaren emaitzak imprimatzen:");
 		

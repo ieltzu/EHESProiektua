@@ -30,7 +30,6 @@ public class Sailkatzailea {
 				double em = classifier.classifyInstance(ins);
 				ins.setClassValue(em);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				//e.printStackTrace();
 				System.out.println(i+". instantzia ezin izan da klasifikatu.");
 				noClassify++;

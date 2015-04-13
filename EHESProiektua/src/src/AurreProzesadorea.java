@@ -19,21 +19,25 @@ public class AurreProzesadorea {
 
 	public static void main(String[] args) {
 		
-		Instances filtratzekoInstantziak [] = new Instances []{Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]),Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[1])};
+		Instances filtratzekoInstantziak [] = new Instances [2];
+		filtratzekoInstantziak[0] = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]);
+		filtratzekoInstantziak[1] = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[1]);
 		
 		// Crear filtro
 		Integer moztu;
-		/*try {
+		try {
 		 moztu= Integer.parseInt(args[4]);
 		 moztu = (moztu>100) ? 100:moztu;
 		 moztu = (moztu<0) ? 0:moztu;
-		 filtratzekoInstantziak = null;
 		} catch (Exception e) {
 			moztu=100;
-		}*/
+		}
 		
-		//filtratzekoInstantziak.addAll(filtratzekoInstantziak.subList(0,filtratzekoInstantziak.numInstances()/100*moztu));
-		
+		int trainSize = (int) Math.round(filtratzekoInstantziak[0].numInstances() * moztu/100);
+	    filtratzekoInstantziak[0] = new Instances(filtratzekoInstantziak[0], 0, trainSize);
+	    System.out.println(filtratzekoInstantziak[0].numInstances());
+	    trainSize = (int) Math.round(filtratzekoInstantziak[1].numInstances() * moztu/100);
+	    filtratzekoInstantziak[1] = new Instances(filtratzekoInstantziak[1], 0, trainSize);
 		/*MultiFilter multiFilter = new MultiFilter();
 		Filter[] filtroSorta = new Filter[6];
 		Discretize discretize = new Discretize();
