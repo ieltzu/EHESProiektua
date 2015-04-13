@@ -12,9 +12,11 @@ import weka.core.Instances;
 
 public class Modeloa {
 
-	private static Evaluation evaluator;
+	
 	
 	public static void main(String[] args){
+		
+		Evaluation evaluator = null;
 		
 		//trainaurre eta devaurre entrenamendu multzoak jasoko dira. Lehenik beti jarriko da train multzoa eta gero dev multzoa
 		Instances trainaurre = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]);
@@ -83,49 +85,52 @@ public class Modeloa {
 	    
 	    // Ez zintzoa
 	    try {
+	    	evaluator = new Evaluation(trainetadev);
 			estimador.buildClassifier(trainetadev);
 			evaluator.evaluateModel(estimador, trainetadev);
 	    } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace(); System.exit(1);
 		}
-	    
+	    System.out.println("No fair base");
 	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Ez zintzoa");
 	    
 	    // Hold out 70 30
 	    try{
+	    	evaluator = new Evaluation(trainetadev70);
 	    	estimador.buildClassifier(trainetadev70);
 	    	evaluator.evaluateModel(estimador, trainetadev30);
 	    } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace(); System.exit(1);
 		}
 	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Hold Out 70 30");
-	    
+	    System.out.println("70 30 base");
 	    // hold out train dev
 	    try{
+	    	evaluator = new Evaluation(trainaurre);
 	    	estimador.buildClassifier(trainaurre);
 	    	evaluator.evaluateModel(estimador, devaurre);
 	    } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace(); System.exit(1);
 		}
+	    System.out.println("Train eta dev base");
 	    
 	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Hold Out train dev");
  
 	    // 10 Fold cross validation
 	    try{
+	    	evaluator = new Evaluation(trainetadev);
 	    	estimador.buildClassifier(trainetadev);
 	    	evaluator.crossValidateModel(estimador, trainetadev, 10, new Random(1));
 	    } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace(); System.exit(1);
 		}
 	    
 	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "10 Fold cross");
-		
+	    System.out.println("10 fold x validation base");
 	    //modeloa egin
-	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/BaselineModel.jar", estimador);
+	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/BaselineModel.model", estimador);
+	    
+	    System.out.println("Baseline Model modeloa idatzita");
 		
 		// Multilayer Perceptron
 		MultilayerPerceptron estimadorMulti = new MultilayerPerceptron();
@@ -143,12 +148,17 @@ public class Modeloa {
         
 		for (int i=0;i<hiddenlayers.size();i++){
 			//hidden layer egokiena aukeratzeko loopa, f-measure altuenaren bila.
+			System.out.println("g");
 			estimadorMulti.setHiddenLayers(hiddenlayers.get(i));
 			try{
-				estimadorMulti.buildClassifier(trainaurre);                     
-				evaluator = new Evaluation(trainaurre);          
-				evaluator.evaluateModel(estimador, devaurre);
-	        
+				System.out.println("d");
+				estimadorMulti.buildClassifier(trainaurre);
+				
+				System.out.println("a");
+				evaluator = new Evaluation(trainaurre);
+				System.out.println("1");
+				evaluator.evaluateModel(estimadorMulti, devaurre);
+				System.out.println("2");
 				// klase minoritariaren fmeasurearekin konparatu
 				fmeasureMediaMulti = evaluator.weightedFMeasure();
 				if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
@@ -158,6 +168,7 @@ public class Modeloa {
 			} catch (Exception e) {
 				e.printStackTrace(); System.exit(1);
 			}
+			System.out.println(hiddenlayers.size()-i);
 		}
 		CVParameterSelection bilaketaEzExhaustiboaMulti = new CVParameterSelection();
 		bilaketaEzExhaustiboaMulti.setClassifier(estimador);
@@ -176,15 +187,17 @@ public class Modeloa {
 	    
 	    // Ez zintzoa
 	    try{
+	    	evaluator = new Evaluation(trainetadev);
 	    	estimadorMulti.buildClassifier(trainetadev);
 	    	evaluator.evaluateModel(estimadorMulti, trainetadev);
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
 	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Ez zintzoa");
-	    
+	    System.out.println("No Fair Mp");
 	    // Hold out 70 30
 	    try{
+	    	evaluator = new Evaluation(trainetadev70);
 	    	estimadorMulti.buildClassifier(trainetadev70);
 	    	evaluator.evaluateModel(estimadorMulti, trainetadev30);
 	    } catch (Exception e) {
@@ -192,28 +205,32 @@ public class Modeloa {
 		}
 	    
 	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30");	    
-	    
+	    System.out.println("70 30 MP");
 	    // hold out train dev
 	    try{
+	    	evaluator = new Evaluation(trainaurre);
 	    	estimadorMulti.buildClassifier(trainaurre);
 	    	evaluator.evaluateModel(estimadorMulti, devaurre);
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
 	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30");	    
-	    
+	    System.out.println("HoldOut MP");
 	    // 10 Fold cross validation
 	    try{
+	    	evaluator = new Evaluation(trainetadev);
 	    	estimadorMulti.buildClassifier(trainetadev);
 	    	evaluator.crossValidateModel(estimadorMulti, trainetadev, 10, new Random(1));
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
+	    System.out.println("10 fold X validation MP");
 	    
 	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationMultilayerPerception.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "10 Fold cross");
 		
 	    // Modeloa egin
-	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/MultilayerPerceptionModel.jar", estimadorMulti);
+	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/MultilayerPerceptionModel.model", estimadorMulti);
+	    System.out.println("MultilayerPerceptionModel modeloa idatzita");
 		
 	}
 	

@@ -53,7 +53,7 @@ public class Idazlea {
 			double recall = evaluator.weightedRecall();
 			double roc = evaluator.weightedAreaUnderROC();
 			double accu =evaluator.pctCorrect();
-			File fOneR= new File(path+"/UpperBoundsOneR.txt");
+			File fOneR= new File(path);
 			try {
 				FileWriter fw = new FileWriter(fOneR);
 				fw.append("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
@@ -83,7 +83,7 @@ public class Idazlea {
 			double fmeasureMedia= evaluator.weightedFMeasure();
 			String matriz = evaluator.toMatrixString();
 			double accu=evaluator.pctCorrect();
-			File fP= new File(path +"/UpperBoundsMLP.txt");
+			File fP= new File(path);
 			try {
 				FileWriter fw= new FileWriter(fP);
 				fw.append("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
@@ -106,24 +106,10 @@ public class Idazlea {
 	}
 	
 	public void modeloaIdatzi(String  path, Classifier cls){
-		FileOutputStream file = null;
-		Boolean created=false;
-		do{
-			try {
-				file = new FileOutputStream(path);
-			} catch (FileNotFoundException e1) {
-				File file1 = new File(path);
-				try {
-					created = !file1.createNewFile();
-					System.out.println(created.booleanValue());
-				} catch (IOException e) {
-					System.out.println("error");
-				}
-			}
-		}while(!created);
+	
 		ObjectOutputStream oos;
 		try {
-			oos = new ObjectOutputStream(file);
+			oos = new ObjectOutputStream(new FileOutputStream(path));
 			oos.writeObject(cls);
 			oos.flush();
 			oos.close();
@@ -132,5 +118,7 @@ public class Idazlea {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		
 	}
 }

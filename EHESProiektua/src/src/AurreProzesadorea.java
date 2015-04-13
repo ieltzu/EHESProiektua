@@ -19,11 +19,12 @@ public class AurreProzesadorea {
 
 	public static void main(String[] args) {
 		
-		Instances filtratzekoInstantziak = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]);
+		Instances filtratzekoInstantziak [] = new Instances []{Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]),Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[1])};
+		
 		// Crear filtro
 		Integer moztu;
 		/*try {
-		 moztu= Integer.parseInt(args[2]);
+		 moztu= Integer.parseInt(args[4]);
 		 moztu = (moztu>100) ? 100:moztu;
 		 moztu = (moztu<0) ? 0:moztu;
 		 filtratzekoInstantziak = null;
@@ -78,15 +79,17 @@ public class AurreProzesadorea {
 		filter.setEvaluator(eval);
 		filter.setSearch(search);
 				
-		Instances filtratzekoInstantziak3=null;
+		Instances filtratzekoInstantziak3 [] =new Instances [2];
 				
 		try {
-			filter.setInputFormat(filtratzekoInstantziak);
-			filtratzekoInstantziak3 = Filter.useFilter(filtratzekoInstantziak, filter);
+			filter.setInputFormat(filtratzekoInstantziak[0]);
+			filtratzekoInstantziak3[0] = Filter.useFilter(filtratzekoInstantziak[0], filter);
+			filtratzekoInstantziak3[1] = Filter.useFilter(filtratzekoInstantziak[1], filter);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		Idazlea.getIdazlea().idatziInstantziak(filtratzekoInstantziak3, args[1]);
+		Idazlea.getIdazlea().idatziInstantziak(filtratzekoInstantziak3[0], args[2]);
+		Idazlea.getIdazlea().idatziInstantziak(filtratzekoInstantziak3[1], args[3]);
 	}
 
 }

@@ -1,0 +1,14 @@
+F-Measure Batazbestekoa: 0.7198846995065171
+BucketSize Maximoa: 0
+BucketSize metodo ez exhaustiboarekin: 107
+Precision Batazbestekoa: 0.7207540846250523
+Recall Batazbestekoa: 0.719047619047619
+ROC Area Batazbestekoa: 0.6353276353276353
+Correctly Classified Instances: 71.9047619047619
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  25  29 |   a = V1
+  30 126 |   b = V2
+
+******************************************************
