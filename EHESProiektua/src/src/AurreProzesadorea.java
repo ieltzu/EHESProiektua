@@ -21,6 +21,17 @@ public class AurreProzesadorea {
 		
 		Instances filtratzekoInstantziak = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]);
 		// Crear filtro
+		Integer moztu;
+		try {
+		 moztu= Integer.parseInt(args[2]);
+		 moztu = (moztu>100) ? 100:moztu;
+		 moztu = (moztu<0) ? 0:moztu;
+		} catch (Exception e) {
+			moztu=100;
+		}
+		
+		filtratzekoInstantziak = (Instances) filtratzekoInstantziak.subList(0,filtratzekoInstantziak.numInstances()/100*moztu);
+		
 		MultiFilter multiFilter = new MultiFilter();
 		Filter[] filtroSorta = new Filter[6];
 		Discretize discretize = new Discretize();
