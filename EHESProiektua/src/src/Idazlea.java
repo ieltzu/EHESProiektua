@@ -83,9 +83,9 @@ public class Idazlea {
 			double fmeasureMedia= evaluator.weightedFMeasure();
 			String matriz = evaluator.toMatrixString();
 			double accu=evaluator.pctCorrect();
-			File fP= new File(path);
+//			File fP= new File(path);
 			try {
-				FileWriter fw= new FileWriter(fP);
+				FileWriter fw= new FileWriter(path, true);
 				fw.append("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
 				fw.append("Hidden Layer: " + estimador.getHiddenLayers()+"\n");
 				fw.append("Hidden Layer metodo ez Exhaustiboarekin: " + hidenLayerEzExhaustiboa+"\n");
@@ -95,10 +95,11 @@ public class Idazlea {
 				fw.append("Correctly Classified Instances: " + accu);
 				fw.append("\n" + matriz);
 				fw.append("\n******************************************************\n");
-				fw.close();
-			} catch (IOException e) {
+//				fw.close();
+				 
+		} catch (IOException e) {
 				e.printStackTrace();
-			}
+		}
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

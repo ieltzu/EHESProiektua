@@ -38,41 +38,62 @@ public class AurreProzesadorea {
 	    System.out.println(filtratzekoInstantziak[0].numInstances());
 	    trainSize = (int) Math.round(filtratzekoInstantziak[1].numInstances() * moztu/100);
 	    filtratzekoInstantziak[1] = new Instances(filtratzekoInstantziak[1], 0, trainSize);
-		/*MultiFilter multiFilter = new MultiFilter();
-		Filter[] filtroSorta = new Filter[6];
-		Discretize discretize = new Discretize();
+	    
 		InterquartileRange interquartile = new InterquartileRange();
-		Remove remove = new Remove();
-		RemoveWithValues removeWithValues = new RemoveWithValues();
+		interquartile.setExtremeValuesFactor(6.0);
+		interquartile.setOutlierFactor(3.0);
+		try {
+			interquartile.setInputFormat(filtratzekoInstantziak[0]);
+			filtratzekoInstantziak[0] = Filter.useFilter(filtratzekoInstantziak[0], interquartile);
+			filtratzekoInstantziak[1] = Filter.useFilter(filtratzekoInstantziak[1], interquartile);
+			
+			RemoveWithValues removeWithValues = new RemoveWithValues();
+			removeWithValues.setAttributeIndex("last");
+			removeWithValues.setNominalIndices("last");
+			removeWithValues.setInputFormat(filtratzekoInstantziak[0]);
+			filtratzekoInstantziak[0] = Filter.useFilter(filtratzekoInstantziak[0], removeWithValues);
+			filtratzekoInstantziak[1] = Filter.useFilter(filtratzekoInstantziak[1], removeWithValues);
+			removeWithValues = new RemoveWithValues();
+			removeWithValues.setAttributeIndex(""+(filtratzekoInstantziak[0].numAttributes()-1));
+			removeWithValues.setNominalIndices("last");
+			removeWithValues.setInputFormat(filtratzekoInstantziak[0]);
+			filtratzekoInstantziak[0] = Filter.useFilter(filtratzekoInstantziak[0], removeWithValues);
+			filtratzekoInstantziak[1] = Filter.useFilter(filtratzekoInstantziak[1], removeWithValues);
+			
+			Remove remove = new Remove();
+			remove.setInputFormat(filtratzekoInstantziak[0]);
+			remove.setAttributeIndicesArray(new int[] {filtratzekoInstantziak[0].numAttributes()-1,filtratzekoInstantziak[0].numAttributes()});
+			filtratzekoInstantziak[0] = Filter.useFilter(filtratzekoInstantziak[0], remove);
+			filtratzekoInstantziak[1] = Filter.useFilter(filtratzekoInstantziak[1], remove);
+		} catch (Exception e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		
+	    
+	    //multiFilter
+		MultiFilter multiFilter = new MultiFilter();
+		Filter[] filtroSorta = new Filter[3];
+		Discretize discretize = new Discretize();
 		Randomize randomize = new Randomize();
 		RemoveUseless removeUseless = new RemoveUseless();
+		
 		filtroSorta[0] = discretize;
-		filtroSorta[1] = interquartile;
-		filtroSorta[2] = remove;
-		filtroSorta[3] = removeWithValues;
-		filtroSorta[4] = randomize;
-		filtroSorta[5] = removeUseless;
-		for (int i = 0; i < filtroSorta.length; i++) {
-			try {
-				filtroSorta[i].setInputFormat(filtratzekoInstantziak);
-			} catch (Exception e) {
-				System.out.println("eoeoeoe");
-				e.printStackTrace();
-			}
+		filtroSorta[1] = randomize;
+		filtroSorta[2] = removeUseless;
 
-		}
 
-		//remove useless y remove sirven para eliminar los atributos y instancias no deseadas TODO
 		
 		multiFilter.setFilters(filtroSorta);	
-		Instances filtratzekoInstantziak2 = filtratzekoInstantziak;
+		Instances filtratzekoInstantziak2 = filtratzekoInstantziak[0];
 		try {
-			
-			filtratzekoInstantziak2 = Filter.useFilter(filtratzekoInstantziak, multiFilter);
+			multiFilter.setInputFormat(filtratzekoInstantziak[0]);
+			filtratzekoInstantziak2 = Filter.useFilter(filtratzekoInstantziak[0], multiFilter);
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}*/
+		}
 		
 		AttributeSelection filter= new AttributeSelection();
 		// Crear tipo de filtro

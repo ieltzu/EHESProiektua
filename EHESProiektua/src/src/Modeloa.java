@@ -50,7 +50,8 @@ public class Modeloa {
 		
 				evaluator.evaluateModel(estimador, devaurre);
 				//klase minoritariaren f-measurearekin konparatuz.
-				fmeasureMedia= evaluator.weightedFMeasure();								
+				fmeasureMedia = evaluator.weightedFMeasure();
+						//evaluator.fMeasure(trainaurre.classAttribute().);
 				if(fmeasureMedia>fmeasureMediaMax){
 					bMax=b;
 					fmeasureMediaMax=fmeasureMedia;
@@ -163,7 +164,6 @@ public class Modeloa {
 			} catch (Exception e) {
 				e.printStackTrace(); System.exit(1);
 			}
-			System.out.println(hiddenlayers.size()-i);
 		}
 		CVParameterSelection bilaketaEzExhaustiboaMulti = new CVParameterSelection();
 		bilaketaEzExhaustiboaMulti.setClassifier(estimadorMulti);
