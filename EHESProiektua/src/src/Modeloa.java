@@ -7,7 +7,6 @@ import weka.classifiers.Evaluation;
 import weka.classifiers.functions.MultilayerPerceptron;
 import weka.classifiers.meta.CVParameterSelection;
 import weka.classifiers.rules.OneR;
-import weka.core.Capabilities;
 import weka.core.Instance;
 import weka.core.Instances;
 
@@ -24,7 +23,7 @@ public class Modeloa {
 		Instances devaurre = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[1]);
 		
 		//klase minoritaria kalkulatu
-		int min = minorityclassindex(trainaurre);
+		//int min = minorityclassindex(trainaurre);
 		
 		// train eta dev gehitu
 	    Instances trainetadev=new Instances(trainaurre);
@@ -36,7 +35,7 @@ public class Modeloa {
 	    Instances trainetadev70 = new Instances(trainetadev, 0, trainSize);
     	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
 		
-		// Baseline (One - R)
+		// Baseline (One-R)
 		OneR estimador= new OneR();
 		
 		int bMax=0;
@@ -55,8 +54,7 @@ public class Modeloa {
 			
 					evaluator.evaluateModel(estimador, devaurre);
 					//klase minoritariaren f-measurearekin konparatuz.
-					fmeasureMedia=evaluator.unweightedMicroFmeasure();
-					//fmeasureMedia = evaluator.weightedFMeasure();
+					fmeasureMedia = evaluator.weightedFMeasure();
 					if(fmeasureMedia>fmeasureMediaMax){
 						bMax=b;
 						capabilities = (i<1);
@@ -90,6 +88,7 @@ public class Modeloa {
 	    
 	    estimador.setMinBucketSize(bMax);
 	    estimador.setDoNotCheckCapabilities(capabilities);
+	    
 	    // Ez zintzoa
 	    try {
 	    	evaluator = new Evaluation(trainetadev);
@@ -156,15 +155,14 @@ public class Modeloa {
 		for (int i=0;i<hiddenlayers.size();i++){
 			//hidden layer egokiena aukeratzeko loopa, f-measure altuenaren bila.
 			estimadorMulti.setHiddenLayers(hiddenlayers.get(i));
-			for (int j = 1; j < 6; j+=5){
+			for (int j = 3; j < 6; j+=5){
 					try{
 						evaluator = new Evaluation(trainaurre);
 						estimadorMulti.setTrainingTime(j);
 						estimadorMulti.buildClassifier(trainetadev);
 						evaluator.evaluateModel(estimadorMulti, devaurre);
 						// klase minoritariaren fmeasurearekin konparatu
-						fmeasureMediaMulti=evaluator.unweightedMicroFmeasure();
-						//fmeasureMediaMulti = evaluator.weightedFMeasure();
+						fmeasureMediaMulti = evaluator.weightedFMeasure();
 						if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
 							fmeasureMediaMaxMulti = fmeasureMediaMulti;
 							hiddenlayersMax =  hiddenlayers.get(i);
@@ -244,7 +242,7 @@ public class Modeloa {
 			kont[j] = 0;
 		}
 		for (Instance instance : i) {
-			kont[i.classIndex()-1] +=1;
+			kont[i.classIndex()] +=1;
 		}
 		int min = kont[0];
 		int ind = 0;
