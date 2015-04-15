@@ -88,10 +88,9 @@ public class AurreProzesadorea {
 		multiFilter.setFilters(filtroSorta);	
 		Instances filtratzekoInstantziak2 = filtratzekoInstantziak[0];
 		try {
-			multiFilter.setInputFormat(filtratzekoInstantziak[0]);
-			filtratzekoInstantziak2 = Filter.useFilter(filtratzekoInstantziak[0], multiFilter);
+			multiFilter.setInputFormat(filtratzekoInstantziak2);
+			filtratzekoInstantziak2 = Filter.useFilter(filtratzekoInstantziak2, multiFilter);
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 		

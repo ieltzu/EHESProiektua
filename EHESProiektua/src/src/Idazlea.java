@@ -44,7 +44,7 @@ public class Idazlea {
 		}
 	}
 	
-	public void fitxategiaEginOneR(String path, Evaluation evaluator, int bMax, int bucketSizeExhaustiboa, String estimazioMota){
+	public void fitxategiaEginOneR(String path, Evaluation evaluator, int bMax, int bucketSizeExhaustiboa, String estimazioMota,Boolean berria){
 		 try {
 			
 			String matriz = evaluator.toMatrixString();
@@ -53,18 +53,20 @@ public class Idazlea {
 			double recall = evaluator.weightedRecall();
 			double roc = evaluator.weightedAreaUnderROC();
 			double accu =evaluator.pctCorrect();
-			File fOneR= new File(path);
 			try {
-				FileWriter fw = new FileWriter(fOneR);
-				fw.append("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
-				fw.append("BucketSize Maximoa: " + bMax+"\n");
-				fw.append("BucketSize metodo ez exhaustiboarekin: " + bucketSizeExhaustiboa+"\n");
-				fw.append("Precision Batazbestekoa: " + precision+"\n");
-				fw.append("Recall Batazbestekoa: " + recall+"\n");
-				fw.append("ROC Area Batazbestekoa: " + roc+"\n");
-				fw.append("Correctly Classified Instances: " + accu);
-				fw.append("\n" + matriz);
-				fw.append("\n******************************************************\n");
+				FileWriter fw = new FileWriter(path,berria);
+				fw.write("\n******************************************************\n");
+				fw.write("\n****"+estimazioMota+"****\n");
+				fw.write("\n******************************************************\n");
+				fw.write("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
+				fw.write("BucketSize Maximoa: " + bMax+"\n");
+				fw.write("BucketSize metodo ez exhaustiboarekin: " + bucketSizeExhaustiboa+"\n");
+				fw.write("Precision Batazbestekoa: " + precision+"\n");
+				fw.write("Recall Batazbestekoa: " + recall+"\n");
+				fw.write("ROC Area Batazbestekoa: " + roc+"\n");
+				fw.write("Correctly Classified Instances: " + accu);
+				fw.write("\n" + matriz);
+				fw.write("\n******************************************************\n");
 				fw.close();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -74,7 +76,7 @@ public class Idazlea {
 		}
 	}
 
-	public void fitxategiaEginMultilayerPerceptron(String path, Evaluation evaluator, MultilayerPerceptron estimador, String hidenLayerEzExhaustiboa, String estimazioMota){
+	public void fitxategiaEginMultilayerPerceptron(String path, Evaluation evaluator, MultilayerPerceptron estimador, String hidenLayerEzExhaustiboa, String estimazioMota,boolean berria){
 	
 		try {
 			double precision= evaluator.weightedPrecision();			
@@ -83,25 +85,26 @@ public class Idazlea {
 			double fmeasureMedia= evaluator.weightedFMeasure();
 			String matriz = evaluator.toMatrixString();
 			double accu=evaluator.pctCorrect();
-//			File fP= new File(path);
 			try {
-				FileWriter fw= new FileWriter(path, true);
-				fw.append("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
-				fw.append("Hidden Layer: " + estimador.getHiddenLayers()+"\n");
-				fw.append("Hidden Layer metodo ez Exhaustiboarekin: " + hidenLayerEzExhaustiboa+"\n");
-				fw.append("Precision Batazbestekoa: " + precision+"\n");
-				fw.append("Recall Batazbestekoa: " + recall+"\n");
-				fw.append("ROC Area Batazbestekoa: " + roc+"\n");
-				fw.append("Correctly Classified Instances: " + accu);
-				fw.append("\n" + matriz);
-				fw.append("\n******************************************************\n");
-//				fw.close();
+				FileWriter fw= new FileWriter(path, berria);
+				fw.write("\n******************************************************\n");
+				fw.write("\n****"+estimazioMota+"****\n");
+				fw.write("\n******************************************************\n");
+				fw.write("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
+				fw.write("Hidden Layer: " + estimador.getHiddenLayers()+"\n");
+				fw.write("Hidden Layer metodo ez Exhaustiboarekin: " + hidenLayerEzExhaustiboa+"\n");
+				fw.write("Precision Batazbestekoa: " + precision+"\n");
+				fw.write("Recall Batazbestekoa: " + recall+"\n");
+				fw.write("ROC Area Batazbestekoa: " + roc+"\n");
+				fw.write("Correctly Classified Instances: " + accu);
+				fw.write("\n" + matriz);
+				fw.write("\n******************************************************\n");
+				fw.close();
 				 
 		} catch (IOException e) {
 				e.printStackTrace();
 		}
 		} catch (Exception e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}	
 	}

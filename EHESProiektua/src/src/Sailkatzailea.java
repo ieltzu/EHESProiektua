@@ -2,7 +2,12 @@ package src;
 
 import java.io.ObjectInputStream.GetField;
 
+import weka.classifiers.AbstractClassifier;
 import weka.classifiers.Classifier;
+import weka.classifiers.bayes.NaiveBayes;
+import weka.classifiers.functions.MultilayerPerceptron;
+import weka.classifiers.meta.FilteredClassifier;
+import weka.classifiers.rules.OneR;
 import weka.core.Instance;
 import weka.core.Instances;
 
@@ -18,16 +23,16 @@ public class Sailkatzailea {
 	}
 	
 	public static void sailkatu(String modeloPath, String testPath, String resultPath){
+		//int modo=1;
 		resultPath = (resultPath != null) ? resultPath : "./emaitza.arff";
-		Classifier classifier = Irakurtzailea.getIrakurtzailea().modeloaKargatu(modeloPath);
+		AbstractClassifier classifier = (AbstractClassifier) Irakurtzailea.getIrakurtzailea().modeloaKargatu(modeloPath);
 		Instances test = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(testPath);
-		
 		Instance ins;
 		int noClassify = 0;
 		for (int i = 0; i < test.numInstances(); i++) {
 			ins = test.get(i);
 			try {
-				double em = classifier.classifyInstance(ins);
+				double em =classifier.classifyInstance(ins);
 				ins.setClassValue(em);
 			} catch (Exception e) {
 				e.printStackTrace();

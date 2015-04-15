@@ -9,19 +9,14 @@ public class Probador {
 		 params[2] = "ficheros/devaurre.arff";
 		 params[1] = "ficheros/train.p3.resampled.obfuscated.arff";
 		 params[3] = "ficheros/trainaurre.arff";
-		 params[4] = "15";
+		 params[4] = "10";
 		 AurreProzesadorea.main(params);
 		 
 		 //Modeloa deituko dugu
 		 String[] paramsM = new String [2];
 		 paramsM[0] = "ficheros/trainaurre.arff";
 		 paramsM[1] = "ficheros/devaurre.arff";
-		 try {
-			Modeloa.main(paramsM);
-		} catch (Exception e){
-			e.printStackTrace();
-			System.out.println("Something happened");
-		}
+		 Modeloa.main(paramsM);
 		 //Lehenengo Baseline
 		 String[] paramsS = new String [3];
 		 paramsS[0] = "modeloak/BaselineModel.model";
