@@ -226,6 +226,8 @@ public class Modeloa {
 	    // Modeloa egin
 	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/MultilayerPerceptionModel.model", estimadorMulti);
 	    System.out.println("MultilayerPerceptionModel modeloa idatzita");
+	    
+	    
 		
 	}
 	
