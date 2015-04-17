@@ -22,6 +22,9 @@ public class Modeloa {
 		Instances trainaurre = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[0]);
 		Instances devaurre = Irakurtzailea.getIrakurtzailea().instantziakIrakurri(args[1]);
 		
+		//klase minoritaria kalkulatu
+		//int min = minorityclassindex(trainaurre);
+		
 		// train eta dev gehitu
 	    Instances trainetadev=new Instances(trainaurre);
 	    trainetadev.addAll(devaurre);
@@ -32,33 +35,36 @@ public class Modeloa {
 	    Instances trainetadev70 = new Instances(trainetadev, 0, trainSize);
     	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
 		
-		// Baseline (One - R)
+		// Baseline (One-R)
 		OneR estimador= new OneR();
 		
 		int bMax=0;
 		double fmeasureMedia=0;
 		double fmeasureMediaMax=0;
+		Boolean capabilities=false;
 		
 		for(int b = 0; b < trainaurre.numInstances(); b++){ //minBucketSize-ko balore desberdinekin probatzen da
+			estimador.setMinBucketSize(b);	
+			for (int i = 0; i < 2; i++) {
+				estimador.setDoNotCheckCapabilities((i<1));
+				try {
+					estimador.buildClassifier(trainaurre);
+					//ebaluatzailea hasieratu
+					evaluator = new Evaluation(trainaurre);
 			
-			estimador.setMinBucketSize(b);
-			try {
-				estimador.buildClassifier(trainaurre);
-			
-				//ebaluatzailea hasieratu
-				evaluator = new Evaluation(trainaurre);
-		
-				evaluator.evaluateModel(estimador, devaurre);
-				//klase minoritariaren f-measurearekin konparatuz.
-				fmeasureMedia= evaluator.weightedFMeasure();								
-				if(fmeasureMedia>fmeasureMediaMax){
-					bMax=b;
-					fmeasureMediaMax=fmeasureMedia;
+					evaluator.evaluateModel(estimador, devaurre);
+					//klase minoritariaren f-measurearekin konparatuz.
+					fmeasureMedia = evaluator.weightedFMeasure();
+					if(fmeasureMedia>fmeasureMediaMax){
+						bMax=b;
+						capabilities = (i<1);
+						fmeasureMediaMax=fmeasureMedia;
+					}
+				}catch(Exception e){
+					e.printStackTrace(); System.exit(1);
+					
+					
 				}
-			}catch(Exception e){
-				e.printStackTrace(); System.exit(1);
-				
-				
 			}
 		}
 		
@@ -75,13 +81,13 @@ public class Modeloa {
 		}
 		OneR sailk = (OneR)bilaketaEzExhaustiboa.getClassifier();
 	    int bucketSizeEzExhaustiboa= sailk.getMinBucketSize();
-	   
 	    
 	    
 	    
 	    // Inferentzia
 	    
 	    estimador.setMinBucketSize(bMax);
+	    estimador.setDoNotCheckCapabilities(capabilities);
 	    
 	    // Ez zintzoa
 	    try {
@@ -92,7 +98,7 @@ public class Modeloa {
 			e.printStackTrace(); System.exit(1);
 		}
 	    System.out.println("No fair base");
-	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Ez zintzoa");
+	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Ez zintzoa",false);
 	    
 	    // Hold out 70 30
 	    try{
@@ -102,7 +108,7 @@ public class Modeloa {
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Hold Out 70 30");
+	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Hold Out 70 30",true);
 	    System.out.println("70 30 base");
 	    // hold out train dev
 	    try{
@@ -114,7 +120,7 @@ public class Modeloa {
 		}
 	    System.out.println("Train eta dev base");
 	    
-	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Hold Out train dev");
+	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "Hold Out train dev",true);
  
 	    // 10 Fold cross validation
 	    try{
@@ -125,7 +131,7 @@ public class Modeloa {
 			e.printStackTrace(); System.exit(1);
 		}
 	    
-	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "10 Fold cross");
+	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationBaseline.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "10 Fold cross",true);
 	    System.out.println("10 fold x validation base");
 	    //modeloa egin
 	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/BaselineModel.model", estimador);
@@ -149,21 +155,22 @@ public class Modeloa {
 		for (int i=0;i<hiddenlayers.size();i++){
 			//hidden layer egokiena aukeratzeko loopa, f-measure altuenaren bila.
 			estimadorMulti.setHiddenLayers(hiddenlayers.get(i));
-			try{
-				evaluator = new Evaluation(trainaurre);
-				estimadorMulti.setTrainingTime(5);
-				estimadorMulti.buildClassifier(trainetadev);
-				evaluator.evaluateModel(estimadorMulti, devaurre);
-				// klase minoritariaren fmeasurearekin konparatu
-				fmeasureMediaMulti = evaluator.weightedFMeasure();
-				if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
-					fmeasureMediaMaxMulti = fmeasureMediaMulti;
-					hiddenlayersMax =  hiddenlayers.get(i);
-				}
-			} catch (Exception e) {
-				e.printStackTrace(); System.exit(1);
+			for (int j = 3; j < 6; j+=5){
+					try{
+						evaluator = new Evaluation(trainaurre);
+						estimadorMulti.setTrainingTime(j);
+						estimadorMulti.buildClassifier(trainetadev);
+						evaluator.evaluateModel(estimadorMulti, devaurre);
+						// klase minoritariaren fmeasurearekin konparatu
+						fmeasureMediaMulti = evaluator.weightedFMeasure();
+						if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
+							fmeasureMediaMaxMulti = fmeasureMediaMulti;
+							hiddenlayersMax =  hiddenlayers.get(i);
+						}
+					} catch (Exception e) {
+						e.printStackTrace(); System.exit(1);
+					}
 			}
-			System.out.println(hiddenlayers.size()-i);
 		}
 		CVParameterSelection bilaketaEzExhaustiboaMulti = new CVParameterSelection();
 		bilaketaEzExhaustiboaMulti.setClassifier(estimadorMulti);
@@ -188,7 +195,7 @@ public class Modeloa {
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Ez zintzoa");
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Ez zintzoa",false);
 	    System.out.println("No Fair Mp");
 	    // Hold out 70 30
 	    try{
@@ -199,7 +206,7 @@ public class Modeloa {
 			e.printStackTrace(); System.exit(1);
 		}
 	    
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30");	    
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
 	    System.out.println("70 30 MP");
 	    // hold out train dev
 	    try{
@@ -209,7 +216,7 @@ public class Modeloa {
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30");	    
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
 	    System.out.println("HoldOut MP");
 	    // 10 Fold cross validation
 	    try{
@@ -221,7 +228,7 @@ public class Modeloa {
 		}
 	    System.out.println("10 fold X validation MP");
 	    
-	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationMultilayerPerception.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "10 Fold cross");
+	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationMultilayerPerception.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "10 Fold cross",true);
 		
 	    // Modeloa egin
 	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/MultilayerPerceptionModel.model", estimadorMulti);
@@ -231,5 +238,23 @@ public class Modeloa {
 		
 	}
 	
+	private static int minorityclassindex(Instances i){
+		int kont [] = new int [i.numClasses()];
+		for (int j : kont) {
+			kont[j] = 0;
+		}
+		for (Instance instance : i) {
+			kont[i.classIndex()] +=1;
+		}
+		int min = kont[0];
+		int ind = 0;
+		for (int j = 1; j < kont.length; j++)  {
+			if(kont[j] < min){
+				min = kont[j];
+				ind = j;
+			}
+		}
+		return ind;
+	}
 	
 }
