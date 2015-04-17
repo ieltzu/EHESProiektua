@@ -127,6 +127,70 @@ Bere metodoa hurrengoa da:
 Horren oztean, {\magenta instantzia} guztiak klasifikatuko dira eta emaitza {\bf Idazle} klasearekin eta {\bf idatziInstantzia} metodoarekin {\gray resultPath} helbidean gordeko da.
 \end{itemize}
 \end{enumerate}
-
+\item \textbf{Laguntzaile batzuk:}\\
+Atal honetan, gure helburua betetzeko laguntzen diguten  beste bi klase azalduko da.Bi klase hauek {\bf Idazlea} eta {\bf Irakurtzailea} izena dute eta bere izena esaten duten bezala irakurtzeko eta idazteko balioko digute\\
+		Laguntzaile klaseetan metodo hauek erabiliko dira.
+		\begin{enumerate}
+			\item {\bf Irakurtzailea:}\\
+			Klase hau, irakurtzeko erabiliko dugun klasea da. Bai fitxategiak, bai modeloak irakurriko ditu.\\
+			Bere metodoak hurrengoak dira:
+			\begin{itemize}
+				\item {\bf Irakurtzailea:}\\
+					Klase honetako eraikitzailea da eta eraikitzaile guztiak bezala klasea eraikitzeko balio du.
+				\item {\bf getIrakurtzailea:}\\
+					Instantzia bakarra nahi dugunez EMA bat sortuko dugu eta beraz metodo honek instantzia bakarra izateko balio du.
+				\item {\bf instantziakIrakurri:}\\
+					Metodo honek irakurri nahi dugun fitxategiaren path-a jasoko da argumentu bezala. Metodoan jasotako fitxategi hori kargatuko da instantzia multzo batean eta bere atributuen artean zein den klasea zehaztuko da.
+				\item {\bf modeloaKargatu:}\\
+					Argumentu bezala kargatu nahi dugun modeloaren path-a jasoko da. Jasotako path horretatik modeloa kargatuko da.
+			\end{itemize}
+			\item {\bf Idazlea:}\\
+			Klase hau, idazteko erabiliko dugun klasea da. Bai fitxategiak, bai modeloak idatziko ditu.\\
+			Bere metodoak hurregoak dira:
+			\begin{itemize}
+				\item {\bf Idazlea:}\\
+					Klase honetako eraikitzailea da eta eraikitzaile guztiak bezala klasea eraikitzeko balio du.
+				\item {\bf getIdazlea:}\\
+					Instantzia bakarra nahi dugunez EMA bat sortuko da eta beraz metodo honek instantzia bakarra izateko balio du.
+				\item {\bf idatziInstantziak:}\\
+					Argumentu bezala, instantzia multzo batzuk eta eraikiko den fitxategiaren path-a jasoko da. Metodoaren zehar jasotako patharekin fitxategi File bat eraikiko da. Jasotako instantziak, eraikitako fitxategian sartuko dira.
+				\item {\bf fitxategiaEginOneR:}\\
+					Metodo honetan haibat argumentu jasoko dira:
+					\begin{itemize}
+						\item {\bf path:}\\
+							File bat eraikitzeko path-a izango da. 
+						\item {\bf evaluator:}\\
+							Metodoan erabilitako ebaluatzailea da.
+						\item {\bf bMax:}\\
+							Parametro ekorketan ateratako bucket size maximoa. 
+						\item {\bf bucketSizeExhaustiboa:}\\
+							Bucket size maximoa bilaketa ez exhaustiboan ateratakoa.
+						\item {\bf estimazioMota:}\\
+							One-R algoritmoaren estimatzailea jasoko da.
+						\item {\bf berria:}\\
+							Fitxategia berria izango denik ala ez zehaztuko da.
+					\end{itemize}
+					Parametro guzti horiek jasota fitxategi batean idatziko dira ebaluatuko diren parametro asko.
+				\item {\bf fitxategiaEginMultilayerPerceptron:}\\
+					Metodo honetan haibat argumentu jasoko dira:
+					\begin{itemize}
+						\item {\bf path:}\\
+							File bat eraikitzeko path-a izango da. 
+						\item {\bf evaluator:}\\
+							Metodoan erabilitako ebaluatzailea da.
+						\item {\bf estimador:}\\
+							Multilayer Perceptronen estimatzailea jasoko da 
+						\item {\bf hiddenLayersEzExhaustiboa:}\\
+							Bucket size maximoa bilaketa ez exhaustiboan ateratakoa.
+						\item {\bf estimazioMota:}\\
+							Multilayer Perceptron algoritmoaren estimatzailea jasoko da.
+						\item {\bf berria:}\\
+							Fitxategia berria izango denik ala ez zehaztuko da.
+					\end{itemize}
+					Parametro guzti horiek jasota fitxategi batean idatziko dira ebaluatuko diren parametro asko.
+				\item {\bf modeloaIdatzi:}\\
+					Metodo honetan bi argumentu jasoko dira. Lehenengoa, modeloa idatzi nahi dugunaren path-a izango da. Bigarrena, erabili nahi den estimatzailea jasoko da. Metodo honetan, jasotako argumentuekin modeloa idatziko da. 
+			\end{itemize}
+		\end{enumerate} 
 \end{enumerate}
 \end{document}
