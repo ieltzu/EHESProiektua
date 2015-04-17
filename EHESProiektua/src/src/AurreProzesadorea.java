@@ -35,7 +35,8 @@ public class AurreProzesadorea {
 		
 		int trainSize = (int) Math.round(filtratzekoInstantziak[0].numInstances() * moztu/100);
 	    filtratzekoInstantziak[0] = new Instances(filtratzekoInstantziak[0], 0, trainSize);
-	    System.out.println(filtratzekoInstantziak[0].numInstances());
+	    System.out.println("Train: "+filtratzekoInstantziak[0].numInstances()+" instantzia");
+	    System.out.println("Development: "+filtratzekoInstantziak[1].numInstances()+" instantzia");
 	    trainSize = (int) Math.round(filtratzekoInstantziak[1].numInstances() * moztu/100);
 	    filtratzekoInstantziak[1] = new Instances(filtratzekoInstantziak[1], 0, trainSize);
 	    
