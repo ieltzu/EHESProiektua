@@ -162,7 +162,8 @@ public class Modeloa {
 						estimadorMulti.buildClassifier(trainetadev);
 						evaluator.evaluateModel(estimadorMulti, devaurre);
 						// klase minoritariaren fmeasurearekin konparatu
-						fmeasureMediaMulti = evaluator.weightedFMeasure();
+						
+						fmeasureMediaMulti = evaluator.fMeasure(minorityclassindex(trainetadev));
 						if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
 							fmeasureMediaMaxMulti = fmeasureMediaMulti;
 							hiddenlayersMax =  hiddenlayers.get(i);
@@ -242,7 +243,7 @@ public class Modeloa {
 			kont[j] = 0;
 		}
 		for (Instance instance : i) {
-			kont[i.classIndex()] +=1;
+			kont[1+(instance.classAttribute().indexOfValue(""+instance.classValue()))] +=1;
 		}
 		int min = kont[0];
 		int ind = 0;
