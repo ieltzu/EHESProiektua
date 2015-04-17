@@ -195,7 +195,7 @@ public class Modeloa {
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Ez zintzoa",false);
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Ez zintzoa",false);
 	    System.out.println("No Fair Mp");
 	    // Hold out 70 30
 	    try{
@@ -206,7 +206,7 @@ public class Modeloa {
 			e.printStackTrace(); System.exit(1);
 		}
 	    
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
 	    System.out.println("70 30 MP");
 	    // hold out train dev
 	    try{
@@ -216,7 +216,7 @@ public class Modeloa {
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerception.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
 	    System.out.println("HoldOut MP");
 	    // 10 Fold cross validation
 	    try{
@@ -228,11 +228,11 @@ public class Modeloa {
 		}
 	    System.out.println("10 fold X validation MP");
 	    
-	    Idazlea.getIdazlea().fitxategiaEginOneR("ficheros/EvaluationMultilayerPerception.txt", evaluator, bMax, bucketSizeEzExhaustiboa, "10 Fold cross",true);
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "10 Fold cross",true);
 		
 	    // Modeloa egin
-	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/MultilayerPerceptionModel.model", estimadorMulti);
-	    System.out.println("MultilayerPerceptionModel modeloa idatzita");
+	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/MultilayerPerceptronModel.model", estimadorMulti);
+	    System.out.println("MultilayerPerceptronModel modeloa idatzita");
 	    
 	    
 		
