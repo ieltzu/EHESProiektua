@@ -37,24 +37,97 @@
 Dokumentu honen bidez, 	
 Multilayer Perceptron eta Naive Bayes eredu igarleak konparatzen ditu.
 \section{Klaseen diseinua}
-Proiektua hiru atal nagusitan banandu dugu. Lehenengoan, datuak aurreprozezatzen dira, bigarrenean, eredua aterako da eta azkenik instantzia berriak ebaluatzeko jarriko dugu.
+Proiektua hiru atal nagusitan banandu dugu. Lehenengoan, datuak aurreprozezatzen dira, bigarrenean, eredua aterako da eta azkenik instantzia berriak ebaluatzeko jarriko da.
 \begin{enumerate}
 	\item \textbf{Aurreprozezamendua} \\
 		Atal honetan, bereiziki ``R-weka.filters.unsupervised.attribute.Obfuscate'' relation-a duten arff fitxategiekin (praktika honetan lan egin behar zirenak) lan egingo dugu. Horregatik behean aipatzen diren filtroak praktika honekin lan egiteko daude. \\
-		Aurre prozezamenduan horrengo klase eta metodoak erabiliko ditugu.
+		Aurre prozezamenduan hurrengo klase eta metodoak erabiliko dira.
 		\begin{enumerate}
-			\item {\bf Aurreprozezamendua:}\\
-			Klase hau, {\red aurreprozezamendua.jar} exekutagarriak egikarituko duen lehenengo klasea izango da, beraz klase nagusia izango da.\\
+			\item {\bf Aurreprozezadorea:}\\
+			Klase hau, {\red Preprocess.jar} exekutagarriak egikarituko duen lehenengo klasea izango da, beraz klase nagusia izango da.\\
 			Bere metodoa hurrengoa da:
 			\begin{itemize}
 				\item {\bf main}\\
-				``main'' metodoan, argumentu bezala consolatik {\blue train.arff} eta {\blue dev.arff} fitxategiak pasatuko dizkiogu, eta nahi izanez gero (instantzia asko badira) 0-100 arteko zenbaki bat pasatu ahal izango diogu, zenbaki honek instantzia kopuru gutxiagorekin lan egiteko izango da (adb: 70 pasatzen badiogu instantzien \%70-rekin lan egingo dugu).\\
+				``main'' metodoan, argumentu bezala konsolatik {\blue train.arff} eta {\blue dev.arff} fitxategiak pasatuko dizkiogu, eta nahi izanez gero (instantzia asko badira) 0-100 arteko zenbaki bat pasatu ahal izango diogu, zenbaki honek instantzia kopuru gutxiagorekin lan egiteko izango da (adb: 70 pasatzen badiogu instantzien \%70-rekin lan egingo dugu).\\
 				Klase honetan metodo bakarra egotea erabaki dugu. Wekak dituen liburutegiak filtroen klseak dituztelako eta `main' metodo honetan, filtro guztiak aplikatuko ditugu:
 				\begin{enumerate}
-					\item {\bf Filtro1:}\\
-					Este es el filtro 1.
+					\item {\bf Discretize:}\\
+					An instance filter that discretizes a range of numeric attributes in the dataset into nominal attributes.
+					\item {\bf InterquartileRange:}\\
+					A filter for detecting outliers and extreme values based on interquartile ranges.
+					\item {\bf Randomize:}\\
+					Randomly shuffles the order of instances passed through it. The random number generator is reset with the seed value whenever a new set of instances is passed in.
+					\item {\bf RemoveUseless:}\\
+					This filter removes attributes that do not vary at all or that vary too much. All constant attributes are deleted automatically, along with any that exceed the maximum percentage of variance parameter. The maximum variance test is only applied to nominal attributes.
+					\item {\bf RemoveWithValues:}\\
+					Filters instances according to the value of an attribute.
+					\item {\bf AttributeSelection:}\\
+					A supervised attribute filter that can be used to select attributes. It is very flexible and allows various search and evaluation methods to be combined.
 				\end{enumerate}
+				`Discretize', `Radomize' eta `RemoveUseless' ``multifilter'' batean sartzen dira batera egiteko. `InterquartileRange' aplikatu ostean bi atributu sortzen ditu, atributu hoiekin `outlier' instantziak eta `extreme values' kenduko dira `RemoveWithValues' eta `Remove' metodoekin. \\
+				Filtro guztiak aplikatu hondoren sortutako instantzia berriak fitxategi batera pasatzen dira, geroago berrerabiltzeko.
 			\end{itemize}
 		\end{enumerate}
+		
+	\item \textbf{Modeloa egitea} \\
+		Atal honetan, entrenamendu multzoak jasoko dira ({\blue trainaurre.arff} eta {\blue devaurre.arff}), `Baseline'-aren (`OneR') eta `MultilayerPerceptron' aldagaien ekorketa egingo da, geroago bien inferentzia (ez zintzoa, HoldOut (70 / 30), HoldOut ({\magenta train} eta {\magenta dev}) eta 10FoldCrossValidation), azkenik bien modeloak gordeko dira fitxategi batean.\\
+		Modeloak hurrengo klase eta metodoak erabiliko ditu.
+		\begin{enumerate}
+			\item {\bf Modeloa:}\\
+			Klase hau, {\red GetModel.jar} exekutagarriak egikarituko duen lehenengo klasea izango da, beraz klase nagusia izango da.\\
+			Bere metodoa hurrengoa da:
+			\begin{itemize}
+				\item {\bf main}\\
+				``main'' metodoan, argumentu bezala konsolatik {\blue trainaurre.arff} eta {\blue devaurre.arff} fitxategiak pasatuko dizkiogu. Fitxategi hauek pasatu behar zaie orden horretan. Horren ondoren ({\magenta trainaurre} instantzien artean klase minoritarioa aterako da. Hori egin eta gero, {\magenta trainaurre} eta {\magenta devaurre} instantziak {\magenta trainetadev} instantzia multzo bakarrean batuko dira. Eta beste aldaera batzuk kalkulatuko dira:
+				\begin{itemize}
+					\item {\magenta trainetadev70} multzoa: {\magenta trainetadev} multzoaren instantzien \%70 barruan dituelarik.
+					\item {\magenta trainetadev30} multzoa: {\magenta trainetadev} multzoaren instantzien \%30 barruan dituelarik.
+				\end{itemize}
+				Orain `Baseline' eta `MultilayerPerceptron' modeloekin hainbat ekintza egingo ditugu:
+				\begin{enumerate}
+\item Parametro ekorketa:\\ Klase minoritarioarekiko `weigthedMeasure'.
+\begin{itemize}
+\item Baseline:
+\begin{itemize}
+\item MinBucketSize
+\item doNotCheckCapabilities
+\end{itemize}
+\item multilayerPerceptron:
+\begin{itemize}
+\item hiddenLayers
+\item training Time
+\end{itemize}
+
+\end{itemize}
+
+\item Bilaketa ez-exhaustiboa
+\item Inferentzia
+\begin{enumerate}
+\item Ez-Zintzoa
+\item HoldOut 70-30
+\item HoldOut {\magenta train} eta {\magenta dev}
+\item 10FoldCrossValidation
+\end{enumerate}
+Metodo bakoitzarekin fitxategi bat idatziko da  {\bf Idazlea} klasearekin eta {\bf fitxategiaEginOneR} eta {\bf fitxategiaEginMultilayerPerceptron} metodoekin hurrenez hurren ({\blue evaluationBaseline.txt} eta {\blue evaluationMultilayerPerceptron.txt}).
+\end{enumerate}
+Hau guztia egin eta gero modelak idatziko dira {\bf Idazlea} klasearekin eta {\bf modeloaIdatzi} metodoarekin.
+\item {\bf minorityClassIndex:}\\
+Metodo honek instantzia multzo bat jasotzen du eta klase minoritarioaren indezea ateratzen du.
+			\end{itemize} 
+		\end{enumerate}
+\item \textbf{Sailkatzea}\\
+Sailkatu behar diren instantzia multzo bat jasoko da eta fitxategi berri batean sailkatuko ditu.
+\begin{enumerate}
+\item {\bf Sailkatzailea}\\
+Klase hau, {\red Classify.jar} exekutagarriak egikarituko duen lehenengo klasea izango da, beraz klase nagusia izango da.\\
+Bere metodoa hurrengoa da:
+\begin{itemize}
+\item {\bf main:}\\
+{\gray modeloaPath}, {\gray testPath} eta {\gray resultPath} jasotzen dira eta {\bf Irakutzailea} klaseak daukan {\bf modeloaKargatu} eta {\bf instantziakIrakurri} metodoekin {\magenta modeloa} eta {\magenta instantziak} kargatuko dira.\\
+Horren oztean, {\magenta instantzia} guztiak klasifikatuko dira eta emaitza {\bf Idazle} klasearekin eta {\bf idatziInstantzia} metodoarekin {\gray resultPath} helbidean gordeko da.
+\end{itemize}
+
+\end{enumerate}
+
 \end{enumerate}
 \end{document}
