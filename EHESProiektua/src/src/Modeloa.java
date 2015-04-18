@@ -146,12 +146,15 @@ public class Modeloa {
 		
 		//HIDDEN LAYERS AUKERAK A, I , O , T DIRENEZ, array batean gorde
 		ArrayList<String> hiddenlayers= new ArrayList<String>();
-		hiddenlayers.add("t");
 		hiddenlayers.add("a");
 		hiddenlayers.add("i");
 		hiddenlayers.add("o");
+		hiddenlayers.add("t");
         String hiddenlayersMax= "";
-        
+        estimadorMulti.setAutoBuild(true);
+        estimadorMulti.setLearningRate(1);
+        estimadorMulti.setNominalToBinaryFilter(false);
+        //estimadorMulti.setGUI(true);
 		for (int i=0;i<hiddenlayers.size();i++){
 			//hidden layer egokiena aukeratzeko loopa, f-measure altuenaren bila.
 			estimadorMulti.setHiddenLayers(hiddenlayers.get(i));
