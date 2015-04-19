@@ -35,7 +35,8 @@ public class Modeloa {
 	    Instances trainetadev70 = new Instances(trainetadev, 0, trainSize);
     	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
 		
-		// Baseline (One-R)
+		// Baseline (One-R
+/*
 		OneR estimador= new OneR();
 		
 		int bMax=0;
@@ -137,7 +138,7 @@ public class Modeloa {
 	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/BaselineModel.model", estimador);
 	    
 	    System.out.println("Baseline Model modeloa idatzita");
-		
+		*/
 		// Multilayer Perceptron
 		MultilayerPerceptron estimadorMulti = new MultilayerPerceptron();
 		
@@ -151,29 +152,43 @@ public class Modeloa {
 		hiddenlayers.add("o");
 		hiddenlayers.add("t");
         String hiddenlayersMax= "";
-        estimadorMulti.setAutoBuild(true);
-        estimadorMulti.setLearningRate(1);
+        estimadorMulti.setAutoBuild(true); // hidden layers
+        
+        //Aurreprozesatzailean egiten direlako.
         estimadorMulti.setNominalToBinaryFilter(false);
+        estimadorMulti.setNormalizeAttributes(false);
+        estimadorMulti.setNormalizeNumericClass(false);
+        
         //estimadorMulti.setGUI(true);
 		for (int i=0;i<hiddenlayers.size();i++){
 			//hidden layer egokiena aukeratzeko loopa, f-measure altuenaren bila.
 			estimadorMulti.setHiddenLayers(hiddenlayers.get(i));
-			for (int j = 3; j < 6; j+=5){
-					try{
-						evaluator = new Evaluation(trainaurre);
-						estimadorMulti.setTrainingTime(j);
-						estimadorMulti.buildClassifier(trainetadev);
-						evaluator.evaluateModel(estimadorMulti, devaurre);
-						// klase minoritariaren fmeasurearekin konparatu
-						
-						fmeasureMediaMulti = evaluator.fMeasure(minorityclassindex(trainetadev));
-						if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
-							fmeasureMediaMaxMulti = fmeasureMediaMulti;
-							hiddenlayersMax =  hiddenlayers.get(i);
+			for (double rate = 0.2; rate<=1; rate+=0.2){
+				estimadorMulti.setLearningRate(rate);
+				for(double momentum = 0.2; momentum<=1; momentum+=0.2){
+					estimadorMulti.setMomentum(momentum);
+					for (int trainingtime = 5; trainingtime < 50; trainingtime+=5){
+						estimadorMulti.setTrainingTime(trainingtime);
+						for (int decay = 0; decay < 2; decay++) {
+							estimadorMulti.setDecay(decay<1);
+							System.out.println("##############\nhiddenlayers:"+i+"\nrate:"+rate+"\nmomentum:"+momentum+"\ntrainigtime:"+trainingtime+"\nDecay:"+decay);
+							try{
+								evaluator = new Evaluation(trainaurre);
+								estimadorMulti.buildClassifier(trainetadev);
+								evaluator.evaluateModel(estimadorMulti, devaurre);
+								// klase minoritariaren fmeasurearekin konparatu
+								
+								fmeasureMediaMulti = evaluator.fMeasure(minorityclassindex(trainetadev));
+								if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
+									fmeasureMediaMaxMulti = fmeasureMediaMulti;
+									hiddenlayersMax =  hiddenlayers.get(i);
+								}
+							} catch (Exception e) {
+								e.printStackTrace(); System.exit(1);
+							}
 						}
-					} catch (Exception e) {
-						e.printStackTrace(); System.exit(1);
 					}
+				}
 			}
 		}
 		CVParameterSelection bilaketaEzExhaustiboaMulti = new CVParameterSelection();

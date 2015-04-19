@@ -4,18 +4,18 @@
 ****Ez zintzoa****
 
 ******************************************************
-F-Measure Batazbestekoa: 0.7194347478748734
-BucketSize Maximoa: 0
-BucketSize metodo ez exhaustiboarekin: 4504
-Precision Batazbestekoa: 0.7618711292267197
-Recall Batazbestekoa: 0.7653393438517405
-ROC Area Batazbestekoa: 0.6064251745798982
-Correctly Classified Instances: 76.53393438517405
+F-Measure Batazbestekoa: 0.8196513709397332
+BucketSize Maximoa: 4395
+BucketSize metodo ez exhaustiboarekin: 22527
+Precision Batazbestekoa: 0.8621805609744988
+Recall Batazbestekoa: 0.8111227964743589
+ROC Area Batazbestekoa: 0.8450998139342587
+Correctly Classified Instances: 81.1122796474359
 === Confusion Matrix ===
 
-    a    b   <-- classified as
-  548 1690 |    a = V1
-  184 5564 |    b = V2
+     a     b   <-- classified as
+ 10507   864 |     a = V1
+  6679 21886 |     b = V2
 
 ******************************************************
 
@@ -24,18 +24,18 @@ Correctly Classified Instances: 76.53393438517405
 ****Hold Out 70 30****
 
 ******************************************************
-F-Measure Batazbestekoa: 0.8402710551790901
-BucketSize Maximoa: 0
-BucketSize metodo ez exhaustiboarekin: 4504
-Precision Batazbestekoa: 1.0
-Recall Batazbestekoa: 0.7245409015025042
-ROC Area Batazbestekoa: 0.0
-Correctly Classified Instances: 72.45409015025042
+F-Measure Batazbestekoa: 0.8803191444948786
+BucketSize Maximoa: 4395
+BucketSize metodo ez exhaustiboarekin: 22527
+Precision Batazbestekoa: 0.997149409068834
+Recall Batazbestekoa: 0.7904181620899758
+ROC Area Batazbestekoa: 0.8637621349066867
+Correctly Classified Instances: 79.04181620899757
 === Confusion Matrix ===
 
     a    b   <-- classified as
-    0    0 |    a = V1
-  660 1736 |    b = V2
+   30    2 |    a = V1
+ 2509 9440 |    b = V2
 
 ******************************************************
 
@@ -44,18 +44,18 @@ Correctly Classified Instances: 72.45409015025042
 ****Hold Out train dev****
 
 ******************************************************
-F-Measure Batazbestekoa: 0.5249706442249265
-BucketSize Maximoa: 0
-BucketSize metodo ez exhaustiboarekin: 4504
-Precision Batazbestekoa: 0.9974757919266843
-Recall Batazbestekoa: 0.3576558460212583
-ROC Area Batazbestekoa: 0.5950839328537171
-Correctly Classified Instances: 35.76558460212583
+F-Measure Batazbestekoa: 0.9965494107799371
+BucketSize Maximoa: 4395
+BucketSize metodo ez exhaustiboarekin: 22527
+Precision Batazbestekoa: 0.9966676425153946
+Recall Batazbestekoa: 0.9964384191176471
+ROC Area Batazbestekoa: 0.6879097954142589
+Correctly Classified Instances: 99.64384191176471
 === Confusion Matrix ===
 
-    a    b   <-- classified as
-    5    1 |    a = V1
- 2235 1240 |    b = V2
+     a     b   <-- classified as
+    17    28 |     a = V1
+    34 17329 |     b = V2
 
 ******************************************************
 
@@ -64,17 +64,17 @@ Correctly Classified Instances: 35.76558460212583
 ****10 Fold cross****
 
 ******************************************************
-F-Measure Batazbestekoa: 0.7190679549358209
-BucketSize Maximoa: 0
-BucketSize metodo ez exhaustiboarekin: 4504
-Precision Batazbestekoa: 0.7580667865614665
-Recall Batazbestekoa: 0.7640871525169046
-ROC Area Batazbestekoa: 0.6063738687054688
-Correctly Classified Instances: 76.40871525169045
+F-Measure Batazbestekoa: 0.7704330807854539
+BucketSize Maximoa: 4395
+BucketSize metodo ez exhaustiboarekin: 22527
+Precision Batazbestekoa: 0.7677926196884423
+Recall Batazbestekoa: 0.7761668669871795
+ROC Area Batazbestekoa: 0.7029895082738705
+Correctly Classified Instances: 77.61668669871794
 === Confusion Matrix ===
 
-    a    b   <-- classified as
-  554 1684 |    a = V1
-  200 5548 |    b = V2
+     a     b   <-- classified as
+  6061  5310 |     a = V1
+  3629 24936 |     b = V2
 
 ******************************************************

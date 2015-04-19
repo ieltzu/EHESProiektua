@@ -10,7 +10,7 @@ public class Probador {
 		 params[1] = "ficheros/train.p3.resampled.obfuscated.arff";
 		 params[3] = "ficheros/trainaurre.arff";
 		 params[4] = "100";
-		 AurreProzesadorea.main(params);
+		 //AurreProzesadorea.main(params);
 		 
 		 //Modeloa deituko dugu
 		 String[] paramsM = new String [2];
@@ -23,13 +23,13 @@ public class Probador {
 		//paramsS[1] = "ficheros/test.copia.arff";
 		 paramsS[1] = "ficheros/test.p3.obfuscated.noclass.arff";
 		 paramsS[2] = "ficheros/TestPredictionsBaseline.txt";
-		 Sailkatzailea.main(paramsS);
+		 //Sailkatzailea.main(paramsS);
 		//Orain multilayer perceptron
 		 paramsS[0] = "modeloak/MultilayerPerceptronModel.model";
 		 //paramsS[1] = "ficheros/test.copia.arff";
 		 paramsS[1] = "ficheros/test.p3.obfuscated.noclass.arff";
 		 paramsS[2] = "ficheros/TestPredictionsMultilayerPerceptron.txt";
-		 Sailkatzailea.main(paramsS);
+		 //Sailkatzailea.main(paramsS);
 		 
 		 
 		 
