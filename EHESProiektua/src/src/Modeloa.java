@@ -36,7 +36,7 @@ public class Modeloa {
     	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
 		
 		// Baseline (One-R
-/*
+
 		OneR estimador= new OneR();
 		
 		int bMax=0;
@@ -138,7 +138,7 @@ public class Modeloa {
 	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/BaselineModel.model", estimador);
 	    
 	    System.out.println("Baseline Model modeloa idatzita");
-		*/
+		
 		// Multilayer Perceptron
 		MultilayerPerceptron estimadorMulti = new MultilayerPerceptron();
 		
