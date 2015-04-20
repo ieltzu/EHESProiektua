@@ -13,7 +13,13 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.5116103590514455
 Recall Batazbestekoa: 0.7152694310897436
-ROC Area Batazbestekoa: 0.4959311258712708
+ROC Area Batazbestekoa: 0.49592786798930905
+F-Measure V1: 0.0
+F-Measure V2: 0.8340024233222872
+Recall V1: 0.0
+Recall V2: 1.0
+Precision V1: 0.0
+Precision V2: 0.7152694310897436
 Correctly Classified Instances: 71.52694310897436
 === Confusion Matrix ===
 
@@ -35,7 +41,13 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.9946653425138728
 Recall Batazbestekoa: 0.9973291044153243
-ROC Area Batazbestekoa: 0.6707909657711942
+ROC Area Batazbestekoa: 0.6707805325853167
+F-Measure V1: 0.0
+F-Measure V2: 0.9986627664020059
+Recall V1: 0.0
+Recall V2: 1.0
+Precision V1: 0.0
+Precision V2: 0.9973291044153243
 Correctly Classified Instances: 99.73291044153243
 === Confusion Matrix ===
 
@@ -57,7 +69,13 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.9963999151605364
 Recall Batazbestekoa: 0.3933249080882353
-ROC Area Batazbestekoa: 0.5192472557147547
+ROC Area Batazbestekoa: 0.5192472474435957
+F-Measure V1: 0.00714487167434427
+F-Measure V2: 0.5632160138963563
+Recall V1: 0.8444444444444444
+Recall V2: 0.3921557334562
+Precision V1: 0.0035876132930513596
+Precision V2: 0.9989730046948356
 Correctly Classified Instances: 39.33249080882353
 === Confusion Matrix ===
 
@@ -79,7 +97,13 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.5116103590514455
 Recall Batazbestekoa: 0.7152694310897436
-ROC Area Batazbestekoa: 0.5907098122048569
+ROC Area Batazbestekoa: 0.5883587697063024
+F-Measure V1: 0.0
+F-Measure V2: 0.8340024233222872
+Recall V1: 0.0
+Recall V2: 1.0
+Precision V1: 0.0
+Precision V2: 0.7152694310897436
 Correctly Classified Instances: 71.52694310897436
 === Confusion Matrix ===
 
