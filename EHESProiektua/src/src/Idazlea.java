@@ -55,6 +55,7 @@ public class Idazlea {
 			double accu =evaluator.pctCorrect();
 			double fmeasureV1 = evaluator.fMeasure(0);
 			double fmeasureV2 = evaluator.fMeasure(1);
+			
 			try {
 				FileWriter fw = new FileWriter(path,berria);
 				fw.write("\n******************************************************\n");
