@@ -13,7 +13,7 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.5116103590514455
 Recall Batazbestekoa: 0.7152694310897436
-ROC Area Batazbestekoa: 0.49592786798930905
+ROC Area Batazbestekoa: 0.4959311258712708
 F-Measure V1: 0.0
 F-Measure V2: 0.8340024233222872
 Recall V1: 0.0
@@ -41,7 +41,7 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.9946653425138728
 Recall Batazbestekoa: 0.9973291044153243
-ROC Area Batazbestekoa: 0.6707805325853167
+ROC Area Batazbestekoa: 0.6707909657711942
 F-Measure V1: 0.0
 F-Measure V2: 0.9986627664020059
 Recall V1: 0.0
@@ -69,7 +69,7 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.9963999151605364
 Recall Batazbestekoa: 0.3933249080882353
-ROC Area Batazbestekoa: 0.5192472474435957
+ROC Area Batazbestekoa: 0.5192472557147547
 F-Measure V1: 0.00714487167434427
 F-Measure V2: 0.5632160138963563
 Recall V1: 0.8444444444444444
@@ -97,7 +97,7 @@ Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.5116103590514455
 Recall Batazbestekoa: 0.7152694310897436
-ROC Area Batazbestekoa: 0.5883587697063024
+ROC Area Batazbestekoa: 0.5907098122048569
 F-Measure V1: 0.0
 F-Measure V2: 0.8340024233222872
 Recall V1: 0.0
