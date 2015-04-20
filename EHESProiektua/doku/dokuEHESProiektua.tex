@@ -13,6 +13,8 @@
   \usepackage[T1]{fontenc}
   \usepackage[latin1]{inputenc}
   \usepackage{graphicx}
+  \usepackage{pstricks}
+  \usepackage{hyperref}
   \title{Dokumentazioa Proiektua}
   \author{Ieltzu Irazu, Mikel de Velasco, Jorge Nieto}
   \date{29 de enero de 2010}
@@ -43,11 +45,30 @@
 	\subsection{Multilayer Perceptron}
 	`Multilayer Perceptron' ingurune aldaketen aurrean aldatzen duen sare neuronal artifiziala da, eta sarrerako datu batzuetatik irteera egoki batzuetara aldatzen du. `Multilayer Perceptron' sarea hiru geruza mota desberdinetan banatzen da:
 	\begin{enumerate}
-\item {\bf Sarrera geruza:} Sarean sarrera patroiak sartzen duten neurona multzoa. Neurona hauek ez dute prozesamendurik.
-\item {\bf Geruza ezkutuan:} Erdibideko neuronak dira, non bakoitzaren sarrerak aurreko geruza batetik datoz eta irteerak hurrengo geruza batera doaz.
-\item {\bf Irteera geruza:} Zeinen irteera-balioak sare guztiaren irteerekin bat datozen neuronak. 
-\end{enumerate}
-	
+		\item {\bf Sarrera geruza:} Sarean sarrera patroiak sartzen duten neurona multzoa. Neurona hauek ez dute prozesamendurik.
+		\item {\bf Geruza ezkutuan:} Erdibideko neuronak dira, non bakoitzaren sarrerak aurreko geruza batetik datoz eta irteerak hurrengo geruza batera doaz.
+		\item {\bf Irteera geruza:} Zeinen irteera-balioak sare guztiaren irteerekin bat datozen neuronak. 
+	\end{enumerate}
+	`Multilayer Perceptron' atzerako hedapen ikasketa entrenatzeko teknika erabiltzen duen sarea da. Metodo honek \href{http://en.wikipedia.org/wiki/Perceptron}{\blue{ `Estandar Linear Perceptron' }} motodoaren aldaketa bat da eta linelaki banatzeko modukoak ez diren datuak bereiz ditzake.\\\\
+	{\sc \textbf{Atzerako hedapenearekin ikasten:}}\\
+	Ikasketa datuak prozesatu eta gero haien pisua aldatzen denean gertatzen da, espero zen errore kopurua egon den errore kopuruarekin konparatuz.
+\begin{center}
+\fbox{
+	\begin{minipage}[t]{15cm}
+		\begin{description}
+			\item[Algoritmoa:] Errorea Kalkulatu\\ (Nodo Kopurua: $N$  |  Data Puntua: $j$ | TargetValue: $d$ | Perceptroiak emandako balioa: $y$)
+			\item[Aurre-baldintzak:] $n \in N$
+ 			\item[Emaitza:] $e_n(j)$
+			\item[Begin] :\\
+				$e_n(j) = d_n(j) - y_n(j)$
+			\item[End]
+		\end{description}
+	\end{minipage}
+}}
+\end{center}
+
+
+
 	\item Diseinua laburbildu eta atazen banaketa taldekideen artean eman. Javan garatu den programaren diseinua eta inplementazioari buruzko xehetasun aipagarrienak.
 \end{enumerate}
 \section{Esparru Esperimentala}
@@ -56,7 +77,7 @@
 	\item Aurre-prozesamendua: erabilitako filtroak aukeratzeko motibazioa azaldu eta 3.ariketako emaitzak eman.
 	\item Emaitza esperimentalak: ereduek eskaintzen duten kalitatea aztertu. ...
 	\item Exekutagarrien exekuzio adibide bat (ikusi 5.1. atala).	
-\end{enumerate}
+\end{enumerate}{
 \section{Ondorioak eta etorkizunerako lana}
 laburbildu lanaren sendotasunak eta ahuleziak.
 Aipatu lan honen bitartez atera daitezkeen ondorio nagusiak (bizpahiru). Aipatu nola
@@ -66,6 +87,8 @@ Bibliografia edukia indartu edo sostengatzeko emanda dago. Ezinbestekoa
 da iturri bibliografikoak aipatzea erabili edo horietara jotzen garen puntuan bertan. Ez ahaztu irudien iturria aipatzen. Testuan zehar esplizituki aipatu ez den iturririk ez sartu Bibliografia atalean. Iturria aipatzean zehaztu ahalbait gehien (liburuko kapitulua edo atala eman), honela beste irakurle batek sakondu ahal izango du iturri horiek kontsultatu.
 \begin{itemize}
 	\item {\sc \textbf{Multilayer Perceptron:}} Data Mining - Practical Machine Learning Tools and Techniques (3rd Ed) (Page 232)
+	\item {\sc \textbf{Multilayer Perceptron:}} \href{http://en.wikipedia.org/wiki/Multilayer_perceptron}{\blue{ en.wikipedia.org/wiki/Multilayer\_perceptron }}
+	\item {\sc \textbf{Multilayer:}} \href{http://en.wikipedia.org/wiki/Perceptron}{\blue{ en.wikipedia.org/wiki/Perceptron }}
 \end{itemize}
 
 \section{Balorazio Subjektiboa}
