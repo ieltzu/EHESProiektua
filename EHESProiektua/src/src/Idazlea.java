@@ -53,6 +53,8 @@ public class Idazlea {
 			double recall = evaluator.weightedRecall();
 			double roc = evaluator.weightedAreaUnderROC();
 			double accu =evaluator.pctCorrect();
+			double fmeasureV1 = evaluator.fMeasure(0);
+			double fmeasureV2 = evaluator.fMeasure(1);
 			try {
 				FileWriter fw = new FileWriter(path,berria);
 				fw.write("\n******************************************************\n");
@@ -64,6 +66,12 @@ public class Idazlea {
 				fw.write("Precision Batazbestekoa: " + precision+"\n");
 				fw.write("Recall Batazbestekoa: " + recall+"\n");
 				fw.write("ROC Area Batazbestekoa: " + roc+"\n");
+				fw.write("F-Measure V1: " + fmeasureV1+"\n");
+				fw.write("F-Measure V2: " + fmeasureV2+"\n");
+				fw.write("Recall V1: " + evaluator.recall(0)+"\n");
+				fw.write("Recall V2: " + evaluator.recall(1)+"\n");
+				fw.write("Precision V1: " + evaluator.precision(0)+"\n");
+				fw.write("Precision V2: " + evaluator.precision(1)+"\n");
 				fw.write("Correctly Classified Instances: " + accu);
 				fw.write("\n" + matriz);
 				fw.write("\n******************************************************\n");
@@ -85,6 +93,8 @@ public class Idazlea {
 			double fmeasureMedia= evaluator.weightedFMeasure();
 			String matriz = evaluator.toMatrixString();
 			double accu=evaluator.pctCorrect();
+			double fmeasureV1 = evaluator.fMeasure(0);
+			double fmeasureV2 = evaluator.fMeasure(1);
 			try {
 				FileWriter fw= new FileWriter(path, berria);
 				fw.write("\n******************************************************\n");
@@ -92,13 +102,22 @@ public class Idazlea {
 				fw.write("\n******************************************************\n");
 				fw.write("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
 				fw.write("Hidden Layer: " + estimador.getHiddenLayers()+"\n");
+				fw.write("Learning Rate: " + estimador.getLearningRate()+"\n");
+				fw.write("Momentum: " + estimador.getMomentum()+"\n");
+				fw.write("Training Times: " + estimador.getTrainingTime()+"\n");
+				fw.write("Decay: " + estimador.getDecay()+"\n");
 				fw.write("Hidden Layer metodo ez Exhaustiboarekin: " + hidenLayerEzExhaustiboa+"\n");
 				fw.write("Precision Batazbestekoa: " + precision+"\n");
 				fw.write("Recall Batazbestekoa: " + recall+"\n");
 				fw.write("ROC Area Batazbestekoa: " + roc+"\n");
+				fw.write("F-Measure V1: " + fmeasureV1+"\n");
+				fw.write("F-Measure V2: " + fmeasureV2+"\n");
+				fw.write("Recall V1: " + evaluator.recall(0)+"\n");
+				fw.write("Recall V2: " + evaluator.recall(1)+"\n");
+				fw.write("Precision V1: " + evaluator.precision(0)+"\n");
+				fw.write("Precision V2: " + evaluator.precision(1)+"\n");
 				fw.write("Correctly Classified Instances: " + accu);
 				fw.write("\n" + matriz);
-				fw.write("\n******************************************************\n");
 				fw.close();
 				 
 		} catch (IOException e) {

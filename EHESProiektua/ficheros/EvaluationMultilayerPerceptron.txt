@@ -6,10 +6,14 @@
 ******************************************************
 F-Measure Batazbestekoa: 0.5965364388571999
 Hidden Layer: a
+Learning Rate: 0.2
+Momentum: 0.2
+Training Times: 5
+Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.5116103590514455
 Recall Batazbestekoa: 0.7152694310897436
-ROC Area Batazbestekoa: 0.5
+ROC Area Batazbestekoa: 0.4959311258712708
 Correctly Classified Instances: 71.52694310897436
 === Confusion Matrix ===
 
@@ -19,17 +23,19 @@ Correctly Classified Instances: 71.52694310897436
 
 ******************************************************
 
-******************************************************
-
 ****Hold Out 70 30****
 
 ******************************************************
 F-Measure Batazbestekoa: 0.9959954424286428
 Hidden Layer: a
+Learning Rate: 0.2
+Momentum: 0.2
+Training Times: 5
+Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.9946653425138728
 Recall Batazbestekoa: 0.9973291044153243
-ROC Area Batazbestekoa: 0.5
+ROC Area Batazbestekoa: 0.6707909657711942
 Correctly Classified Instances: 99.73291044153243
 === Confusion Matrix ===
 
@@ -39,25 +45,25 @@ Correctly Classified Instances: 99.73291044153243
 
 ******************************************************
 
-******************************************************
-
 ****Hold Out 70 30****
 
 ******************************************************
-F-Measure Batazbestekoa: 1.3330181310477551E-5
+F-Measure Batazbestekoa: 0.5617785597718163
 Hidden Layer: a
+Learning Rate: 0.2
+Momentum: 0.2
+Training Times: 5
+Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
-Precision Batazbestekoa: 6.6823200371026165E-6
-Recall Batazbestekoa: 0.002585018382352941
-ROC Area Batazbestekoa: 0.5
-Correctly Classified Instances: 0.2585018382352941
+Precision Batazbestekoa: 0.9963999151605364
+Recall Batazbestekoa: 0.3933249080882353
+ROC Area Batazbestekoa: 0.5192472557147547
+Correctly Classified Instances: 39.33249080882353
 === Confusion Matrix ===
 
      a     b   <-- classified as
-    45     0 |     a = V1
- 17363     0 |     b = V2
-
-******************************************************
+    38     7 |     a = V1
+ 10554  6809 |     b = V2
 
 ******************************************************
 
@@ -66,15 +72,17 @@ Correctly Classified Instances: 0.2585018382352941
 ******************************************************
 F-Measure Batazbestekoa: 0.5965364388571999
 Hidden Layer: a
+Learning Rate: 0.2
+Momentum: 0.2
+Training Times: 5
+Decay: true
 Hidden Layer metodo ez Exhaustiboarekin: t
 Precision Batazbestekoa: 0.5116103590514455
 Recall Batazbestekoa: 0.7152694310897436
-ROC Area Batazbestekoa: 0.5
+ROC Area Batazbestekoa: 0.5907098122048569
 Correctly Classified Instances: 71.52694310897436
 === Confusion Matrix ===
 
      a     b   <-- classified as
      0 11371 |     a = V1
      0 28565 |     b = V2
-
-******************************************************
