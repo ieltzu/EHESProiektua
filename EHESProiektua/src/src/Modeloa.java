@@ -142,8 +142,13 @@ public class Modeloa {
 		// Multilayer Perceptron
 		MultilayerPerceptron estimadorMulti = new MultilayerPerceptron();
 		
+		double errorratemax=1.0;
 		double fmeasureMediaMulti=0;
 		double fmeasureMediaMaxMulti=0;
+		double rateMax = 0.0;
+		double momentumMax = 0.2;
+		int trainingtimemax = 0;
+		boolean decaymax = false;
 		
 		//HIDDEN LAYERS AUKERAK A, I , O , T DIRENEZ, array batean gorde
 		ArrayList<String> hiddenlayers= new ArrayList<String>();
@@ -179,9 +184,24 @@ public class Modeloa {
 								// klase minoritariaren fmeasurearekin konparatu
 								
 								fmeasureMediaMulti = evaluator.fMeasure(minorityclassindex(trainetadev));
+								/*evaluator.errorRate();
+								if(evaluator.errorRate()<errorratemax){
+									errorratemax = evaluator.errorRate();
+									hiddenlayersMax =  hiddenlayers.get(i);
+									rateMax = rate;
+									momentumMax=momentum;
+									trainingtimemax= trainingtime;
+									decaymax=(decay<1);
+									
+								}/*/
 								if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
 									fmeasureMediaMaxMulti = fmeasureMediaMulti;
 									hiddenlayersMax =  hiddenlayers.get(i);
+									rateMax = rate;
+									momentumMax=momentum;
+									trainingtimemax= trainingtime;
+									decaymax=(decay<1);
+									
 								}
 							} catch (Exception e) {
 								e.printStackTrace(); System.exit(1);
@@ -205,6 +225,10 @@ public class Modeloa {
 	    //Inferentzia
 	    
 	    estimadorMulti.setHiddenLayers(hiddenlayersMax);
+		estimadorMulti.setLearningRate(rateMax);
+		estimadorMulti.setMomentum(momentumMax);
+		estimadorMulti.setTrainingTime(trainingtimemax);
+		estimadorMulti.setDecay(decaymax);
 	    
 	    // Ez zintzoa
 	    try{

@@ -92,13 +92,16 @@ public class Idazlea {
 				fw.write("\n******************************************************\n");
 				fw.write("F-Measure Batazbestekoa: " + fmeasureMedia+"\n");
 				fw.write("Hidden Layer: " + estimador.getHiddenLayers()+"\n");
+				fw.write("Learning Rate: " + estimador.getLearningRate()+"\n");
+				fw.write("Momentum: " + estimador.getMomentum()+"\n");
+				fw.write("Training Times: " + estimador.getTrainingTime()+"\n");
+				fw.write("Decay: " + estimador.getDecay()+"\n");
 				fw.write("Hidden Layer metodo ez Exhaustiboarekin: " + hidenLayerEzExhaustiboa+"\n");
 				fw.write("Precision Batazbestekoa: " + precision+"\n");
 				fw.write("Recall Batazbestekoa: " + recall+"\n");
 				fw.write("ROC Area Batazbestekoa: " + roc+"\n");
 				fw.write("Correctly Classified Instances: " + accu);
 				fw.write("\n" + matriz);
-				fw.write("\n******************************************************\n");
 				fw.close();
 				 
 		} catch (IOException e) {
