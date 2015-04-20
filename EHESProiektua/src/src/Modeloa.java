@@ -36,7 +36,7 @@ public class Modeloa {
     	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
 		
 		// Baseline (One-R
-/*
+
 		OneR estimador= new OneR();
 		
 		int bMax=0;
@@ -138,7 +138,7 @@ public class Modeloa {
 	    Idazlea.getIdazlea().modeloaIdatzi("modeloak/BaselineModel.model", estimador);
 	    
 	    System.out.println("Baseline Model modeloa idatzita");
-		*/
+		
 		// Multilayer Perceptron
 		MultilayerPerceptron estimadorMulti = new MultilayerPerceptron();
 		
@@ -259,7 +259,7 @@ public class Modeloa {
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out train dev",true);	    
 	    System.out.println("HoldOut MP");
 	    // 10 Fold cross validation
 	    try{
