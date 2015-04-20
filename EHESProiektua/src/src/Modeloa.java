@@ -259,7 +259,7 @@ public class Modeloa {
 	    } catch (Exception e) {
 			e.printStackTrace(); System.exit(1);
 		}
-	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out 70 30",true);	    
+	    Idazlea.getIdazlea().fitxategiaEginMultilayerPerceptron("ficheros/EvaluationMultilayerPerceptron.txt", evaluator, estimadorMulti, hiddenLayerEzexhaustiboa, "Hold Out train dev",true);	    
 	    System.out.println("HoldOut MP");
 	    // 10 Fold cross validation
 	    try{
