@@ -77,7 +77,9 @@ public class Idazlea {
 				fw.write("\n******************************************************\n");
 				fw.close();
 			} catch (IOException e) {
-				e.printStackTrace();
+				File f = new File(path);
+				f.mkdirs();
+				fitxategiaEginOneR(path, evaluator, bMax, bucketSizeExhaustiboa, estimazioMota, berria);
 			}
 		} catch (Exception e) {
 				e.printStackTrace();
@@ -121,7 +123,9 @@ public class Idazlea {
 				fw.close();
 				 
 		} catch (IOException e) {
-				e.printStackTrace();
+			File f = new File(path);
+			f.mkdirs();
+			fitxategiaEginMultilayerPerceptron(path, evaluator, estimador, hidenLayerEzExhaustiboa, estimazioMota, berria);
 		}
 		} catch (Exception e1) {
 			e1.printStackTrace();
@@ -137,7 +141,9 @@ public class Idazlea {
 			oos.flush();
 			oos.close();
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			File f = new File(path);
+			f.mkdirs();
+			modeloaIdatzi(path, cls);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
