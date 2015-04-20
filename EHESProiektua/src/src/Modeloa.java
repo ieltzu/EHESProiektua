@@ -184,7 +184,7 @@ public class Modeloa {
 								// klase minoritariaren fmeasurearekin konparatu
 								
 								fmeasureMediaMulti = evaluator.fMeasure(minorityclassindex(trainetadev));
-								/*evaluator.errorRate();
+								evaluator.errorRate();
 								if(evaluator.errorRate()<errorratemax){
 									errorratemax = evaluator.errorRate();
 									hiddenlayersMax =  hiddenlayers.get(i);
@@ -193,7 +193,7 @@ public class Modeloa {
 									trainingtimemax= trainingtime;
 									decaymax=(decay<1);
 									
-								}/*/
+								}/*
 								if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
 									fmeasureMediaMaxMulti = fmeasureMediaMulti;
 									hiddenlayersMax =  hiddenlayers.get(i);
@@ -202,7 +202,7 @@ public class Modeloa {
 									trainingtimemax= trainingtime;
 									decaymax=(decay<1);
 									
-								}
+								}*/
 							} catch (Exception e) {
 								e.printStackTrace(); System.exit(1);
 							}
