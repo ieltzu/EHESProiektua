@@ -76,32 +76,37 @@
 \section{Esparru Esperimentala}
 \begin{enumerate}
 	\item Datuak: datuen deskribapen kualitatibo eta kuantitatiboa 2. ariketako emaitzak sartu.\\
+	\begin{center}
 	\includegraphics[width=10cm]{img/pre-process.png}
+	\end{center}
 	\item Aurre-prozesamendua: erabilitako filtroak aukeratzeko motibazioa azaldu eta 3.ariketako emaitzak eman.\\
-	\includegraphics[width=10cm]{img/holdouttraindev.png} 
+	\begin{center}
+	\includegraphics[width=10cm]{img/holdouttraindev.png}
+	\end{center}
 	\item Emaitza esperimentalak: ereduek eskaintzen duten kalitatea aztertu. ...\\
+	\begin{center}
 	\includegraphics[width=10cm]{img/resufoldcross.png}
-	\item Exekutagarrien exekuzio adibide bat (ikusi 5.1. atala).	
+	\end{center}
+	\item Exekutagarrien exekuzio adibide bat (ikusi 5.1. atala).\\
+	Txostenean iradokitzen zen bezala, ataza hau hiru partetan banandu da eta parte bakotzarekin {\red.jar} exekutagarri bat atera egin dugu.
 \end{enumerate}{
 \section{Ondorioak eta etorkizunerako lana}
-Lan honetan Multilayer Perceptron-ren parametro asko ekortu ditugu eta beraz oso modelo sendoa lortu dugu. Nahiz eta parametro asko ekortu izan, konturatu gara ez dela asko hobetzen modeloa. Eskatzen zeneko ia-ia guztia egin dugu eta beraz ez ditugu asko egiteko, baina etorkizuneko lan bezala beste Baseline algoritmoak ekortzea eta konparaketa berriak egitea izango zen.
+Lan honetan Multilayer Perceptron-ren parametro asko ekortu ditugu eta beraz oso modelo sendoa lortu dugu. Nahiz eta parametro asko ekortu izan, konturatu gara ez dela asko hobetzen modeloa, eta modelo honetan ekorketa egiterakoan beste parametro bat kontuan izan behar zela konturatu gara.\\\\
+Eskatzen zeneko ia-ia guztia egin dugu eta beraz ez ditugu asko egiteko, baina etorkizuneko lan bezala beste Baseline algoritmoak ekortzea eta konparaketa berriak egitea izango zen, eta ahal izanez gero Multilayer Perceptroren ekorketan kontuan hartzen ez dugun `errorRate' parametroa kontuan hartzea izango zen. Hobetzeko beste gauza bat aurreprozezamendua izango zen. Klaseen artean diferentzia asko zegoenez, estimatzailea ezin zuen ondo ikasi, ematzia ez oso onak ateraz.\\\\
+Nahiz eta azkenen bertsioan `Multilayer Perceptron' ekorketan, klase minoritarioaren `fmeasure' balioarekin konparatu izana, tarteko bertsio batean beste era batera egiteko aukera eman genuen eta ekorketaren emaitzak gorde genituen. Bi ekorketa egiterakoa eta konparatzerakoan, askorik ez zela hobetzen konturatu ginen, batzutan batek egiten zuen hobeto beste batzutan besteak... Beraz ez genuen ondorio handirik atera hortik. Egia da aurreprozezamendua hobetu beharra dagoela, eta horren ondorioz emaitza askoz hobetuko dala, gure uztez hori izan da arazorik nagusiena.
 \section{Bibliografia}
 Bibliografia edukia indartu edo sostengatzeko emanda dago. Ezinbestekoa
 da iturri bibliografikoak aipatzea erabili edo horietara jotzen garen puntuan bertan. Ez ahaztu irudien iturria aipatzen. Testuan zehar esplizituki aipatu ez den iturririk ez sartu Bibliografia atalean. Iturria aipatzean zehaztu ahalbait gehien (liburuko kapitulua edo atala eman), honela beste irakurle batek sakondu ahal izango du iturri horiek kontsultatu.
 \begin{itemize}
 	\item {\sc \textbf{Multilayer Perceptron:}} Data Mining - Practical Machine Learning Tools and Techniques (3rd Ed) (Page 232)
-	\item {\sc \textbf{Multilayer Perceptron:}} \href{http://en.wikipedia.org/wiki/Multilayer_perceptron}{\blue{ en.wikipedia.org/wiki/Multilayer\_perceptron }}
-	\item {\sc \textbf{Multilayer:}} \href{http://en.wikipedia.org/wiki/Perceptron}{\blue{ en.wikipedia.org/wiki/Perceptron }}
+	\item {\sc \textbf{Weka Wikispaces:}} \href{https://weka.wikispaces.com/}{\blue{ weka.wikispaces.com}}
+	\item {\sc \textbf{Wekaren dokumentazioa:}} Weka programa instalatzerakoan dagoen dokumentazioa (\href{http://weka.sourceforge.net/doc.stable/}{\blue{ interneteko kopia }})
+	\item {\sc \textbf{Multilayer Perceptron:}} \href{http://en.wikipedia.org/wiki/Multilayer_perceptron}{\blue{ en.wikipedia.org/wiki/Multilayer\_perceptron }} {\bf (Ideia bat eukitzeko)}
+	\item {\sc \textbf{Multilayer:}} \href{http://en.wikipedia.org/wiki/Perceptron}{\blue{ en.wikipedia.org/wiki/Perceptron }}  {\bf (Ideia bat eukitzeko)}
 	
 \end{itemize}
 
 \section{Balorazio Subjektiboa}
-\begin{itemize}
-\item Ieltzu: Nire ustez Atazarekin lortu behar genueneko helburuak lortu dira. Denbora asko eman dut bereziki txostena egiten, gauza asko azaldu behar direlako. Ikasketarako denbora nahikotzo ere eman dut. Multilayer Perceptron nola doan jakitea denbora asko eraman dit. Diseinua egiteko ez da arazo larririk egon. Diseinua egiterakoan beharbada modeloa egiteko atala zailena izan da, luzera handienekoa da ere. Taldelana oso garrantzitzua izan da. Beti bezala, gure taldean oso ondo moldatzen gara hirurok batera eta pozik nago egindako lanarekin. Interes handiena beharbada lan handia izatearena izango da, ez genuelako hain handia den bestelako lanik egin arlo honetan.
-
-\item Jorge: Nire ustez atazako helburu guztiak bete ditugu. Denbora asko kostatu zitzaidan arazo guztiak konpontzea, izan ere hasiera batean ez nuen oso ondo ulertzen nola zihoan metodoa (Multilayer Perceptron). Denbora asko eman nuen interneten irakurtzen eta bideoak ikusten ondo ulertu ahal izateko. Azkenean Multilayer Perceptron ekorketa oso ona egin dugu eta denbora asko behar du ekortzeko, probak egiterakoan arazo bat izan zen (Memoria, denbora...). Dokumentazioari dagokionez ere denbora asko behar izan genuen guztia prestatzeko. Diseinua egiterakoan ez genituen arazorik izan, beti bezala hasiera batean diseinua guztiok egin eta gero lana ondo banatu genuen. Gure artean oso ondo moldatzen gara eta ez dugu inolako arazorik izan taldean lana egiterakoan. \\\\Nire ustez oso praktika interesgarria izan da, guk ezagutzen ez genuen metodo bati buruz informazioa bilatu, diseinatu, inplementatu eta probak egin ditugulako. Aurreko praktiketatik ikasitakoa hobezeko ere balio izan du.\\
-\item Mikel:
-\end{itemize}
 (borondatezkoa) eranskin batean atazari buruzko hausnarketa egin. Honako puntuak lagungarriak izan daitezke baina ez dira derrigorrezkoak, beste batzuk ere sar daitezke.
 \begin{enumerate}
 	\item Atazarekin lortu nahi ziren helburuak lortu dituzue? (ikusi 1. atala)
@@ -109,27 +114,16 @@ da iturri bibliografikoak aipatzea erabili edo horietara jotzen garen puntuan be
 	\item Talde-lana erabilgarria izan da ataza ebazteko?
 	\item Zer sortarazi dizue interesik handiena? Ikasleengan interesa eta motibazioa pizteko iradokizunak eman.   
 \end{enumerate}
-\newpage
-\section{PROBANDO}
-\begin{center}
-{ \fboxsep 12pt
-\fbox{
-	\begin{minipage}[t]{14cm}
-		\begin{description}
-			\item[Algoritmoa:] NombreAlgoritmo (Entrenatzeko Instantziak: $Z$)
-			\item[Aurre-baldintzak:] $Z$\hspace{1cm}$|Z| = N$
- 			\item[Emaitza:] Erabaki Zuhaitza: $T$
-			\item[Begin] :\\
-	if( $Z$ multzoko instantzia guztiak klase berekoak dira ($C$) )\{ \\
-	.\hspace{1cm}return $T$(nodo terminala (hostoa) $C$-rekin etiketatua) \\
-	\} else \{ \\
-	.\hspace{1cm}Haukeratu informazio gehien eskaintzen duen aldagaia $Xr (Xr = \{xr^1, ..., xr^nr\})$ \\
-	.\hspace{1cm}.... \\
-	.\hspace{1cm}return $T$(lotu error $Xr nr$ azpi-zuhaitzarekin: $T1, ..., Tnr$) \\
-	\} \\
-			\item[End]
-		\end{description}
-	\end{minipage}
-}}
-\end{center}
+\begin{itemize}
+\item {\bf Ieltzu: }\\
+Nire ustez Atazarekin lortu behar genueneko helburuak lortu dira. Denbora asko eman dut bereziki txostena egiten, gauza asko azaldu behar direlako. Ikasketarako denbora nahikotzo ere eman dut. Multilayer Perceptron nola doan jakitea denbora asko eraman dit. Diseinua egiteko ez da arazo larririk egon. Diseinua egiterakoan beharbada modeloa egiteko atala zailena izan da, luzera handienekoa da ere. Taldelana oso garrantzitzua izan da. Beti bezala, gure taldean oso ondo moldatzen gara hirurok batera eta pozik nago egindako lanarekin. Interes handiena beharbada lan handia izatearena izango da, ez genuelako hain handia den bestelako lanik egin arlo honetan.
+
+\item {\bf Jorge:} \\
+Nire ustez atazako helburu guztiak bete ditugu. Denbora asko kostatu zitzaidan arazo guztiak konpontzea, izan ere hasiera batean ez nuen oso ondo ulertzen nola zihoan metodoa (Multilayer Perceptron). Denbora asko eman nuen interneten irakurtzen eta bideoak ikusten ondo ulertu ahal izateko. Azkenean Multilayer Perceptron ekorketa oso ona egin dugu eta denbora asko behar du ekortzeko, probak egiterakoan arazo bat izan zen (Memoria, denbora...). Dokumentazioari dagokionez ere denbora asko behar izan genuen guztia prestatzeko. Diseinua egiterakoan ez genituen arazorik izan, beti bezala hasiera batean diseinua guztiok egin eta gero lana ondo banatu genuen. Gure artean oso ondo moldatzen gara eta ez dugu inolako arazorik izan taldean lana egiterakoan. \\\\Nire ustez oso praktika interesgarria izan da, guk ezagutzen ez genuen metodo bati buruz informazioa bilatu, diseinatu, inplementatu eta probak egin ditugulako. Aurreko praktiketatik ikasitakoa hobezeko ere balio izan du.
+\item {\bf Mikel:}\\
+Nire partez esan behar dut txostenean aipatzen zen guztiarekin bete dugula, baina uzte dut praktika hau ez zegoela guztiz prestatuta `Multilayer Perceptron' klasifikatzailearekin lan egiteko, ekorketa egiterakoan klase minoritarioaren `fmeasure'-rekin konparatzen genuelako eta praktika burutzerakoan ulertu dudanaren partez, modelo hau `errorRate'-arekin lan egiten du, eta ekorketa kontuan hartzea merezi zuela uzte dut. Ekorketan nahiko parametro kontuan izan ditugu, eta kontuan hartu ez ditugunak, metodoa beste era batera erabiltzeko zelako izan da.\\\\
+Dokumentazioa egiterakoan, \LaTeX{} erabili dugunez, hasieran zaila egin zaigu baina denbora joan ahala gero eta azkarrago egiten genuen, egin nahi genuen guztia lortu ez arren, eta nahiko denbora emanez lenguaia honen ``Kaixo Mundua'' ikasteko. Hala ere behar den guztia dokumentatuta geratu dela uzte dut.\\\\
+Taldean lan egiterakoan ez dugu inolako arazorik izan, beste proiektu batzuetan taldekide berak izan garelako eta badakigulako nola egiten duten besteek lan eta nola antolatu behar garen egin beharreko ataza aurrera eramateko.\\\\
+Praktika osoa kontuan hartuz, interesgarria izan dela dirudit, klasifikatzaile berri bat nola funtzionatzen den ikusi dugulako. Beste taldekideen klasifikatzaileak nola funtzionatzen duten ikasteko gurarekin geratu naiz. Eta azkenik, etorkizun batean informazioa bilatu eta ulertzeko lagungarria izan dela.
+\end{itemize}
 \end{document}
