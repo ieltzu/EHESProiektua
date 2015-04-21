@@ -35,7 +35,7 @@ public class Modeloa {
 	    Instances trainetadev70 = new Instances(trainetadev, 0, trainSize);
     	Instances trainetadev30 = new Instances(trainetadev, trainSize, testSize);
 		
-		// Baseline (One-R
+		// Baseline (One-R)
 
 		OneR estimador= new OneR();
 		
@@ -44,7 +44,7 @@ public class Modeloa {
 		double fmeasureMediaMax=0;
 		Boolean capabilities=false;
 		
-		for(int b = 0; b < trainaurre.numInstances(); b++){ //minBucketSize-ko balore desberdinekin probatzen da
+		for(int b = 0; b < trainaurre.numInstances(); b+=5){ //minBucketSize-ko balore desberdinekin probatzen da
 			estimador.setMinBucketSize(b);	
 			for (int i = 0; i < 2; i++) {
 				estimador.setDoNotCheckCapabilities((i<1));
@@ -179,13 +179,12 @@ public class Modeloa {
 							System.out.println("##############\nhiddenlayers:"+i+"\nrate:"+rate+"\nmomentum:"+momentum+"\ntrainigtime:"+trainingtime+"\nDecay:"+decay);
 							try{
 								evaluator = new Evaluation(trainaurre);
-								estimadorMulti.buildClassifier(trainetadev);
+								estimadorMulti.buildClassifier(trainaurre);
 								evaluator.evaluateModel(estimadorMulti, devaurre);
 								// klase minoritariaren fmeasurearekin konparatu
-								
 								fmeasureMediaMulti = evaluator.fMeasure(minorityclassindex(trainetadev));
 								evaluator.errorRate();
-								if(evaluator.errorRate()<errorratemax){
+								/*if(evaluator.errorRate()<errorratemax){
 									errorratemax = evaluator.errorRate();
 									hiddenlayersMax =  hiddenlayers.get(i);
 									rateMax = rate;
@@ -193,7 +192,7 @@ public class Modeloa {
 									trainingtimemax= trainingtime;
 									decaymax=(decay<1);
 									
-								}/*
+								}/*/
 								if(fmeasureMediaMulti>fmeasureMediaMaxMulti){
 									fmeasureMediaMaxMulti = fmeasureMediaMulti;
 									hiddenlayersMax =  hiddenlayers.get(i);
@@ -202,7 +201,7 @@ public class Modeloa {
 									trainingtimemax= trainingtime;
 									decaymax=(decay<1);
 									
-								}*/
+								}
 							} catch (Exception e) {
 								e.printStackTrace(); System.exit(1);
 							}
