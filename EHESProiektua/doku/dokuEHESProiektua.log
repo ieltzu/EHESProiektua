@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.26)  21 APR 2015 16:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.3.26)  22 APR 2015 17:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -510,7 +510,7 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 26.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<img/portada.png, id=36, 478.78876pt x 298.11375pt>
+<img/portada.png, id=4, 478.78876pt x 298.11375pt>
 File: img/portada.png Graphic file (type png)
  <use img/portada.png>
 Package pdftex.def Info: img/portada.png used on input line 27.
@@ -527,99 +527,106 @@ Non-PDF special ignored!
 Non-PDF special ignored!
 Non-PDF special ignored!{/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/upd
 map/pdftex.map} <./img/portada.png>] [2]
-Underfull \hbox (badness 10000) in paragraph at lines 52--55
+Underfull \hbox (badness 10000) in paragraph at lines 58--61
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--74
+Underfull \hbox (badness 10000) in paragraph at lines 76--80
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--74
+Underfull \hbox (badness 10000) in paragraph at lines 76--80
 
  []
 
-[3] <img/pre-process.png, id=74, 554.82281pt x 250.68657pt>
+[3] <img/pre-process.png, id=49, 554.82281pt x 250.68657pt>
 File: img/pre-process.png Graphic file (type png)
 
 <use img/pre-process.png>
-Package pdftex.def Info: img/pre-process.png used on input line 79.
+Package pdftex.def Info: img/pre-process.png used on input line 85.
 (pdftex.def)             Requested size: 284.52756pt x 128.55992pt.
 
-<img/holdouttraindev.png, id=75, 624.08156pt x 259.7203pt>
+<img/holdouttraindev.png, id=50, 624.08156pt x 259.7203pt>
 File: img/holdouttraindev.png Graphic file (type png)
 
 <use img/holdouttraindev.png>
-Package pdftex.def Info: img/holdouttraindev.png used on input line 81.
+Package pdftex.def Info: img/holdouttraindev.png used on input line 87.
 (pdftex.def)             Requested size: 284.52756pt x 118.41069pt.
 
 
-LaTeX Warning: File `img/resufoldcross.png' not found on input line 83.
+LaTeX Warning: File `img/resufoldcross.png' not found on input line 89.
 
 
-./dokuEHESProiektua.tex:83: Package pdftex.def Error: File `img/resufoldcross.p
+./dokuEHESProiektua.tex:89: Package pdftex.def Error: File `img/resufoldcross.p
 ng' not found.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.83 ...raphics[width=10cm]{img/resufoldcross.png}
+l.89 ...raphics[width=10cm]{img/resufoldcross.png}
                                                   
 ? 
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 83.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 89.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [4 <./img/pre-process.png> <./img/holdouttraindev.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 92.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 98.
 
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 92.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 98.
  [5]
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--103
+Underfull \hbox (badness 10000) in paragraph at lines 108--109
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
 \T1/cmr/m/n/10 . Hauk-er-atu in-for-mazio gehien es-kaintzen duen alda-gaia $\O
 ML/cmm/m/it/10 Xr\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Xr \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
+Underfull \hbox (badness 10000) in paragraph at lines 139--139
 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 135.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 141.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 135.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 141.
  (./dokuEHESProiektua.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 135.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 135.
-Package rerunfilecheck Info: File `dokuEHESProiektua.out' has not changed.
-(rerunfilecheck)             Checksum: 70A2D8DFFE54892762C60389D2A26C6B;452.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 135.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 141.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 141.
+
+
+Package rerunfilecheck Warning: File `dokuEHESProiektua.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `dokuEHESProiektua.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  70A2D8DFFE54892762C60389D2A26C6B;452.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 141.
  )
 (\end occurred inside a group at level 1)
 
-### simple group (level 1) entered at line 85 ({)
+### simple group (level 1) entered at line 91 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 13167 strings out of 493117
- 217993 string characters out of 6135433
- 298914 words of memory out of 5000000
- 16407 multiletter control sequences out of 15000+600000
+ 13162 strings out of 493117
+ 217926 string characters out of 6135433
+ 298810 words of memory out of 5000000
+ 16398 multiletter control sequences out of 15000+600000
  17685 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,6n,40p,1035b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -638,10 +645,10 @@ sr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr
 ocal/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/loc
 al/texlive/2014/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local
 /texlive/2014/texmf-dist/fonts/type1/public/cm-super/sfxc1000.pfb>
-Output written on dokuEHESProiektua.pdf (7 pages, 281078 bytes).
+Output written on dokuEHESProiektua.pdf (7 pages, 283760 bytes).
 PDF statistics:
- 164 PDF objects out of 1000 (max. 8388607)
- 133 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 80 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 146 PDF objects out of 1000 (max. 8388607)
+ 115 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
