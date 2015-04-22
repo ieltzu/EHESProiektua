@@ -29,8 +29,14 @@
 \newpage
 \section{Azaleko Orria / Aurkibidea}
 \begin{enumerate}
-	\item {\sc Azaleko Orria / Aurkibidea\dotfill 2}
-	\item {\sc }
+
+	\item {\sc Azaleko Orria / Aurkibidea \dotfill 2}
+	\item {\sc Esparru Teorikoa \dotfill 3}
+	\item {\sc Esparru Esperimentala \dotfill 4}
+	\item {\sc Ondorioak / Etorkizunerako lana \dotfill 5}
+	\item {\sc Bibliografia \dotfill 5}
+	\item {\sc Balorazio subjetiboa \dotfill 6}
+
 \end{enumerate}
 \newpage
 \section{Esparru Teorikoa}
@@ -90,7 +96,17 @@
 	\item Exekutagarrien exekuzio adibide bat (ikusi 5.1. atala).\\
 	Txostenean iradokitzen zen bezala, ataza hau hiru partetan banandu da eta parte bakotzarekin {\red.jar} exekutagarri bat atera egin dugu.
 	\begin{enumerate}
-		\item Aurreprozezaptzailea
+		\item Aurreprozezatzailea:\\
+		Atal honetako .jar exekutagarria {\red Preprocess.jar} fatxategia da, eta programa ondo funtziona dezan, lau parametro behar ditu gutxienez:
+		\begin{enumerate}
+			\item Development {\bf .arff} fitxategia. Kasu honetan, {\blue dev.p3.obfuscated.arff} fitxategia.
+			\item Aurreko fitxategia arreprozezatu hondoren, arff fitxategi berria sortu nahi den helbidea. Adibidez {\blue devaurre.arff} fitxategia sortzen genuen, baina edozein izen har dezake.
+			\item Entrenamendu {\bf .arff} fitxategia. Kasu honetan, {\blue train.p3.resampled.obfuscated.arff} fitxategia.
+			\item Hirugarren parametroan adierazi den fitxategia arreprozezatu hondoren, arff fitxategi berria sortu nahi den helbidea. Adibidez {\blue trainaurre.arff} fitxategia sortzen genuen, baina edozein izen har dezake.
+			\item Azkenik, beharrezko den parametro bat sar daiteke. Parametro honek, {\bf 1-100} arteko zenbaki bat izan behar da eta fitxategien instantzien \% portsentai jakin batean lan egin nahi den adierazten da. Adibidez fitxategi osoaren instantzien {\bf \%80}-rekin lan egin nahi bada parametro honetan, 80 zenbakia sartzen da.
+		\end{enumerate}
+		Beraz, exekutatzeko, konsolatik honako komandoa egikaritu beharko zen:\\
+			\fbox{{\scriptsize > java -jar Preprocess.jar dev.p3.obfuscated.arff devResult.arff train.p3.resampled.obfuscated.arff trainResult.arff}}
 	\end{enumerate}
 \end{enumerate}{
 \section{Ondorioak eta etorkizunerako lana}

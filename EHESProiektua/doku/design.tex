@@ -32,9 +32,9 @@
 	\item {\sc Aurkezpena\dotfill 3}
 	\item {\sc Klaseen diseinua\dotfill 3}
 	\begin{enumerate}
-		\item {\sc Aurreprozezamendua\dotfill 3}
+		\item {\sc aurreprozesamendua\dotfill 3}
 		\begin{enumerate}
-			\item Aurreprozezadorea\dotfill 3
+			\item aurreprozesadorea\dotfill 3
 		\end{enumerate}
 		\item {\sc Modelo egitea\dotfill 4}
 		\begin{enumerate}
@@ -56,13 +56,13 @@
 Dokumentu honen bidez, 	
 Multilayer Perceptron eta Naive Bayes eredu igarleak konparatzen ditu.
 \section{Klaseen diseinua}
-Proiektua hiru atal nagusitan banandu dugu. Lehenengoan, datuak aurreprozezatzen dira, bigarrenean, eredua aterako da eta azkenik instantzia berriak ebaluatzeko jarriko da.
+Proiektua hiru atal nagusitan banandu dugu. Lehenengoan, datuak aurreprozesatzen dira, bigarrenean, eredua aterako da eta azkenik instantzia berriak ebaluatuko dira.
 \begin{enumerate}
-	\item \textbf{Aurreprozezamendua} \\
+	\item \textbf{aurreprozesamendua} \\
 		Atal honetan, bereiziki ``R-weka.filters.unsupervised.attribute.Obfuscate'' relation-a duten arff fitxategiekin (praktika honetan lan egin behar zirenak) lan egingo dugu. Horregatik behean aipatzen diren filtroak praktika honekin lan egiteko daude. \\
 		Aurre prozezamenduan hurrengo klase eta metodoak erabiliko dira.
 		\begin{enumerate}
-			\item {\bf Aurreprozezadorea:}\\
+			\item {\bf aurreprozesadorea:}\\
 			Klase hau, {\red Preprocess.jar} exekutagarriak egikarituko duen lehenengo klasea izango da, beraz klase nagusia izango da.\\
 			Bere metodoa hurrengoa da:
 			\begin{itemize}
@@ -114,7 +114,10 @@ Proiektua hiru atal nagusitan banandu dugu. Lehenengoan, datuak aurreprozezatzen
 \item multilayerPerceptron:
 \begin{itemize}
 \item hiddenLayers
-\item training Time
+\item TrainingTime
+\item LearningRate
+\item Decay
+\item Momentum
 \end{itemize}
 
 \end{itemize}
