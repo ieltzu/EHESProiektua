@@ -1,9 +1,7 @@
 package src;
 
-import weka.attributeSelection.BestFirst;
 import weka.attributeSelection.CfsSubsetEval;
 import weka.attributeSelection.GreedyStepwise;
-import weka.classifiers.meta.FilteredClassifier;
 import weka.core.Instances;
 import weka.filters.Filter;
 import weka.filters.MultiFilter;
@@ -67,7 +65,6 @@ public class AurreProzesadorea {
 			filtratzekoInstantziak[0] = Filter.useFilter(filtratzekoInstantziak[0], remove);
 			filtratzekoInstantziak[1] = Filter.useFilter(filtratzekoInstantziak[1], remove);
 		} catch (Exception e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		

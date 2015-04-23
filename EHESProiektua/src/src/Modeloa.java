@@ -142,7 +142,7 @@ public class Modeloa {
 		// Multilayer Perceptron
 		MultilayerPerceptron estimadorMulti = new MultilayerPerceptron();
 		
-		double errorratemax=1.0;
+		
 		double fmeasureMediaMulti=0;
 		double fmeasureMediaMaxMulti=0;
 		double rateMax = 0.0;

@@ -1,8 +1,6 @@
 package src;
 
 import weka.classifiers.Classifier;
-import weka.classifiers.functions.MultilayerPerceptron;
-import weka.classifiers.rules.OneR;
 import weka.core.Instance;
 import weka.core.Instances;
 

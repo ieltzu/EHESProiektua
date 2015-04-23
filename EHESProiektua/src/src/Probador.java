@@ -22,13 +22,13 @@ public class Probador {
 		 paramsS[0] = "modeloak/BaselineModel.model";
 		//paramsS[1] = "ficheros/test.copia.arff";
 		 paramsS[1] = "ficheros/test.p3.obfuscated.noclass.arff";
-		 paramsS[2] = "ficheros/TestPredictionsBaseline.txt";
+		 paramsS[2] = "ficheros/TestPredictionsBaseline.arff";
 		 //Sailkatzailea.main(paramsS);
 		//Orain multilayer perceptron
 		 paramsS[0] = "modeloak/MultilayerPerceptronModel.model";
 		 //paramsS[1] = "ficheros/test.copia.arff";
 		 paramsS[1] = "ficheros/test.p3.obfuscated.noclass.arff";
-		 paramsS[2] = "ficheros/TestPredictionsMultilayerPerceptron.txt";
+		 paramsS[2] = "ficheros/TestPredictionsMultilayerPerceptron.arff";
 		 //Sailkatzailea.main(paramsS);
 		 
 		 

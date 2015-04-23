@@ -1,0 +1,170 @@
+\documentclass{article}
+  % Márgenes
+  \textheight    = 20cm
+  \textwidth     = 18cm
+  \topmargin     = -2cm
+  \oddsidemargin = -1cm
+  % Sangría
+  \parindent     =  0mm
+  %Paquetes 
+  %  deben venir con la distribución TeX 
+  %  o se pueden poner en la misma carpeta de este archivo .tex
+  \usepackage{amsmath, amssymb, amsfonts, latexsym}
+  \usepackage[T1]{fontenc}
+  \usepackage[latin1]{inputenc}
+  \usepackage{graphicx}
+  \usepackage{pstricks}
+  \usepackage{hyperref}
+  \title{Dokumentazioa Proiektua}
+  \author{Ieltzu Irazu, Mikel de Velasco, Jorge Nieto}
+  \date{24 de Marzo de 2015}
+
+  %Inicio del cuerpo del documento
+\begin{document}
+\newpage
+\maketitle
+\begin{center}
+	\includegraphics[width=10cm]{img/portada.png} 
+\end{center}
+\newpage
+\section{Azaleko Orria / Aurkibidea}
+\begin{enumerate}
+
+	\item {\sc Azaleko Orria / Aurkibidea \dotfill 2}
+	\item {\sc Esparru Teorikoa \dotfill 3}
+	\item {\sc Esparru Esperimentala \dotfill 4}
+	\item {\sc Ondorioak / Etorkizunerako lana \dotfill 5}
+	\item {\sc Bibliografia \dotfill 5}
+	\item {\sc Balorazio subjetiboa \dotfill 6}
+
+\end{enumerate}
+\newpage
+\section{Esparru Teorikoa}
+\begin{enumerate}
+	\item Dokumentazio eta sintesi lana landutako ikasketa teknikari buruz, alegia:
+	\begin{enumerate}
+	\item Support Vector Machines(SVM)
+	\item {\bf Multilayer Perceptron (MP)}
+	\item Bayes Network (BayesNet)
+	\end{enumerate}
+	Gure kasuan {\bf Multilayer Perceptron} estimatzailea ikastea tokatu zaigu. {\bf Multilayer Perceptron} ez da estimatzaile simple bat eta horregatik {\bf OneR} estimatzailearekin konparatuko dugu (estimatzaile simple dena).
+	\subsection{Multilayer Perceptron}
+	`Multilayer Perceptron' ingurune aldaketen aurrean aldatzen duen sare neuronal artifiziala da, eta sarrerako datu batzuetatik irteera egoki batzuetara aldatzen du. `Multilayer Perceptron' sarea hiru geruza mota desberdinetan banatzen da:
+	\begin{enumerate}
+		\item {\bf Sarrera geruza:} Sarean sarrera patroiak sartzen duten neurona multzoa. Neurona hauek ez dute prozesamendurik.
+		\item {\bf Geruza ezkutuan:} Erdibideko neuronak dira, non bakoitzaren sarrerak aurreko geruza batetik datoz eta irteerak hurrengo geruza batera doaz.
+		\item {\bf Irteera geruza:} Zeinen irteera-balioak sare guztiaren irteerekin bat datozen neuronak. 
+	\end{enumerate}
+	`Multilayer Perceptron' atzerako hedapen ikasketa entrenatzeko teknika erabiltzen duen sarea da. Metodo honek \href{http://en.wikipedia.org/wiki/Perceptron}{\blue{ `Estandar Linear Perceptron' }} motodoaren aldaketa bat da eta linelaki banatzeko modukoak ez diren datuak bereiz ditzake.\\\\
+	{\sc \textbf{Atzerako hedapenearekin ikasten:}}\\
+	Ikasketa datuak prozesatu eta gero haien pisua aldatzen denean gertatzen da, espero zen errore kopurua egon den errore kopuruarekin konparatuz.
+\begin{center}
+\fbox{
+	\begin{minipage}[t]{15cm}
+		\begin{description}
+			\item[Algoritmoa:] Errorea Kalkulatu\\ (Nodo Kopurua: $N$  |  Data Puntua: $j$ | TargetValue: $d$ | Perceptroiak emandako balioa: $y$)
+			\item[Aurre-baldintzak:] $n \in N$
+ 			\item[Emaitza:] $e_n(j)$
+			\item[Begin] :\\
+				$e_n(j) = d_n(j) - y_n(j)$
+			\item[End]
+		\end{description}
+	\end{minipage}
+}
+
+\end{center}
+	Errorea irteeratik sarrera joango balitz bezala ulertu daiteke, horregatik hartzen du backpropagation izena. \\\\
+	{\sc \textbf{Perceptroia entrenatu:}}\\
+	Perceptroiek hiperplano bat definitzen dute, eta neurona sarea perceptroiaren hiperplano hori implementatzen dute. Datu batzuk sarreratzat erabiliz, pisu balioak kalkulatu egin daitezke konexiorik gabe eta konektatzean pertzeptroiak irteera balioak kalkulatu ditu.\\
+	Pertzeptroiari ez zaio lagin osoa pasatzen lehenengo aldian, honen zati bat ematen zaio. Sareak bere aldagaiak kasu bakoitzaren ostean eguneratzea da helburua, sarea gutxika definituz eta hobetuz. Errorea ez da lagin osoaren gainean kalkulatzen, baizik eta jasotako instantzia bakoitzeko errore hori txikitzen ahalegintzen da. \\
+	\item Diseinua laburbildu eta atazen banaketa taldekideen artean eman. Javan garatu den programaren diseinua eta inplementazioari buruzko xehetasun aipagarrienak.\\
+	Gure Diseinu txostena beste pdf batean egin dugu. Bere izena Design.txt da eta pdf hau dagoen karpeta berean dago.\\
+\end{enumerate}
+\section{Esparru Esperimentala}
+\begin{enumerate}
+	\item Datuak: datuen deskribapen kualitatibo eta kuantitatiboa 2. ariketako emaitzak sartu.\\
+	\begin{center}
+	\includegraphics[width=10cm]{img/pre-process.png}
+	\end{center}
+	\item Aurre-prozesamendua: erabilitako filtroak aukeratzeko motibazioa azaldu eta 3.ariketako emaitzak eman.\\
+	\begin{center}
+	\includegraphics[width=10cm]{img/holdouttraindev.png}
+	\end{center}
+	\item Emaitza esperimentalak: ereduek eskaintzen duten kalitatea aztertu. ...\\
+	\begin{center}
+	\includegraphics[width=10cm]{img/resufoldcross.png}
+	\end{center}
+	\item Exekutagarrien exekuzio adibide bat (ikusi 5.1. atala).\\
+	Txostenean iradokitzen zen bezala, ataza hau hiru partetan banandu da eta parte bakotzarekin {\red.jar} exekutagarri bat atera egin dugu.
+	\begin{enumerate}
+		\item Aurreprozezatzailea:\\
+		Atal honetako .jar exekutagarria {\red Preprocess.jar} fitxategia da, eta programa ondo funtziona dezan, lau parametro behar ditu gutxienez:
+		\begin{enumerate}
+			\item Development {\bf .arff} fitxategia. Kasu honetan, {\blue dev.p3.obfuscated.arff} fitxategia.
+			\item Aurreko fitxategia arreprozezatu ondoren, arff fitxategi berria sortu nahi den helbidea. Adibidez {\blue devaurre.arff} fitxategia sortzen genuen, baina edozein izen har dezake.
+			\item Entrenamendu {\bf .arff} fitxategia. Kasu honetan, {\blue train.p3.resampled.obfuscated.arff} fitxategia.
+			\item Hirugarren parametroan adierazi den fitxategia arreprozezatu ondoren, arff fitxategi berria sortu nahi den helbidea. Adibidez {\blue trainaurre.arff} fitxategia sortzen genuen, baina edozein izen har dezake.
+			\item Azkenik, beharrezko den parametro bat sar daiteke. Parametro honek, {\bf 1-100} arteko zenbaki bat izan behar da eta fitxategien instantzien \% portsentai jakin batean lan egin nahi den adierazten da. Adibidez fitxategi osoaren instantzien {\bf \%80}-rekin lan egin nahi bada parametro honetan, 80 zenbakia sartzen da.
+		\end{enumerate}
+		Beraz, exekutatzeko, konsolatik honako komandoa egikaritu beharko zen:\\
+			\fbox{{\scriptsize > java -jar Preprocess.jar dev.p3.obfuscated.arff devResult.arff train.p3.resampled.obfuscated.arff trainResult.arff}}\\
+		
+		\item Modeloa egitea:\\
+			Atal honetako .jar exekutagarria {\red GetModel.jar} fitxategia da, eta programa ondo funtziona dezan, bi parametro behar ditu, parametro horiek, aurreko atalean sorturiko bi .arff fitxategi berriak izango dira:
+			\begin{enumerate}
+				\item Aurreprozezatutako development {\bf .arff} fitxategia. Kasu honetan, {\blue devaurre.arff} fitxategia.
+				\item Aurreprozazatutako entrenamendu {\bf .arff} fitxategia. Kasu honetan, {\blue trainaurre.arff} fitxategia.
+			\end{enumerate}
+			Beraz, exekutatzeko, konsolatik honako komandoa egikaritu beharko zen:\\
+				\fbox{{\scriptsize > java -jar GetModel.jar devaurre.arff trainaurre.arff}}\\\\
+			Exekutatu ondoren, programa honek, `modeloak' katalogoa sortzen du eta bere barnean, {\blue BaselineModel.model} eta {\blue MultilayerPerceptronModel.model} modelo fitxategi bitarrak sortzen ditu.\\
+			Horretaz aparte, `ficheros' katalogo berria ere sortzen du eta bertan bi modeloen ebaluaketa idazten du, {\blue EvaluationBaseline.txt} eta {\blue EvaluationMultilayerPerceptron.txt} hurrenez hurren.
+		\item Sailkatzailea:\\
+			Atal honetako .jar exekutagarria {\red Classify.jar} fitxategia da, eta programa ondo funtziona dezan, hiru parametro behar ditu, parametro horietako bat, aurreko atalean sorturiko modeloetako bat izan behar da:
+			\begin{enumerate}
+				\item Aurreko exkutagarrian ({\red GetModel.jar}) sorturiko {\bf .model} fitxategi bitarra izango da. Kasu honetan, {\blue BaselineModel.model} edo {\blue MultilayerPerceptronModel.model} fitxategi bitarrak.
+				\item Bigarren parametroa ebaluatu nahi dugun fitxategiaren path-a izango da. Gure kasuan {\blue test.p3.obfuscated.noclass.arff}  izango da
+				\item Hirugarren parametro bezala ebaluatu ondoren sortutako fitxategia kokatu nahi dugun lekuaren path-a izango da. Kasu honetan, {\blue TestPredictionsBaseline.arff} edo {\blue TestPredictionsMultilayerPerceptron.arff}
+			\end{enumerate}
+			Beraz, exekutatzeko, konsolatik honako komandoa egikaritu beharko zen:\\
+				\fbox{{\scriptsize > java -jar Classify.jar MultilayerPerceptronModel.model test.p3.obfuscated.noclass.arff TestPredictionsMultilayerPerceptron.arff}}\\\\
+			Exekutatu ondoren, programa honek,hirugarren parametroan ({\blue TestPredictionsMultilayerPerceptron.arff} edo {\blue TestPredictionsBaseline.arff}) pasaturiko izenarekin emaitzak gordeko ditu.
+	\end{enumerate}
+\end{enumerate}{
+\section{Ondorioak eta etorkizunerako lana}
+Lan honetan Multilayer Perceptron-ren parametro asko ekortu ditugu eta beraz oso modelo sendoa lortu dugu. Nahiz eta parametro asko ekortu izan, konturatu gara ez dela asko hobetzen modeloa, eta modelo honetan ekorketa egiterakoan beste parametro bat kontuan izan behar zela konturatu gara.\\\\
+Eskatzen zeneko ia-ia guztia egin dugu eta beraz ez ditugu asko egiteko, baina etorkizuneko lan bezala beste Baseline algoritmoak ekortzea eta konparaketa berriak egitea izango zen, eta ahal izanez gero Multilayer Perceptroren ekorketan kontuan hartzen ez dugun `errorRate' parametroa kontuan hartzea izango zen. Hobetzeko beste gauza bat aurreprozezamendua izango zen. Klaseen artean diferentzia asko zegoenez, estimatzailea ezin zuen ondo ikasi, ematzia ez oso onak ateraz.\\\\
+Nahiz eta azkenen bertsioan `Multilayer Perceptron' ekorketan, klase minoritarioaren `fmeasure' balioarekin konparatu izana, tarteko bertsio batean beste era batera egiteko aukera eman genuen eta ekorketaren emaitzak gorde genituen. Bi ekorketa egiterakoa (`fmeasure' edo `errorRate') eta konparatzerakoan, askorik ez zela hobetzen konturatu ginen, batzutan batek egiten zuen hobeto beste batzutan besteak... Beraz ez genuen ondorio handirik atera hortik. Egia da aurreprozezamendua hobetu beharra dagoela, eta horren ondorioz emaitza askoz hobetuko dala, gure uztez hori izan da arazorik nagusiena.
+\section{Bibliografia}
+Bibliografia edukia indartu edo sostengatzeko emanda dago. Ezinbestekoa
+da iturri bibliografikoak aipatzea erabili edo horietara jotzen garen puntuan bertan. Ez ahaztu irudien iturria aipatzen. Testuan zehar esplizituki aipatu ez den iturririk ez sartu Bibliografia atalean. Iturria aipatzean zehaztu ahalbait gehien (liburuko kapitulua edo atala eman), honela beste irakurle batek sakondu ahal izango du iturri horiek kontsultatu.
+\begin{itemize}
+	\item {\sc \textbf{Multilayer Perceptron:}} Data Mining - Practical Machine Learning Tools and Techniques (3rd Ed) (Page 232)
+	\item {\sc \textbf{Weka Wikispaces:}} \href{https://weka.wikispaces.com/}{\blue{ weka.wikispaces.com}}
+	\item {\sc \textbf{Wekaren dokumentazioa:}} Weka programa instalatzerakoan dagoen dokumentazioa (\href{http://weka.sourceforge.net/doc.stable/}{\blue{ interneteko kopia }})
+	\item {\sc \textbf{Multilayer Perceptron:}} \href{http://en.wikipedia.org/wiki/Multilayer_perceptron}{\blue{ en.wikipedia.org/wiki/Multilayer\_perceptron }} {\bf (Ideia bat eukitzeko)}
+	\item {\sc \textbf{Multilayer:}} \href{http://en.wikipedia.org/wiki/Perceptron}{\blue{ en.wikipedia.org/wiki/Perceptron }}  {\bf (Ideia bat eukitzeko)}
+	
+\end{itemize}
+
+\section{Balorazio Subjektiboa}
+(borondatezkoa) eranskin batean atazari buruzko hausnarketa egin. Honako puntuak lagungarriak izan daitezke baina ez dira derrigorrezkoak, beste batzuk ere sar daitezke.
+\begin{enumerate}
+	\item Atazarekin lortu nahi ziren helburuak lortu dituzue? (ikusi 1. atala)
+	\item Batazbestean zenbat denbora eman duzue atazean lanean? Desglosatu: ikasketarako denbora, bilaketa bibliografikoa, softwarearen diseinua eta inplementazioa, txostena.
+	\item Talde-lana erabilgarria izan da ataza ebazteko?
+	\item Zer sortarazi dizue interesik handiena? Ikasleengan interesa eta motibazioa pizteko iradokizunak eman.   
+\end{enumerate}
+\begin{itemize}
+\item {\bf Ieltzu: }\\
+Nire ustez Atazarekin lortu behar genueneko helburuak lortu dira. Denbora asko eman dut bereziki txostena egiten, gauza asko azaldu behar direlako. Ikasketarako denbora nahikotzo ere eman dut. Multilayer Perceptron nola doan jakitea denbora asko eraman dit. Diseinua egiteko ez da arazo larririk egon. Diseinua egiterakoan beharbada modeloa egiteko atala zailena izan da, luzera handienekoa da ere. Taldelana oso garrantzitzua izan da. Beti bezala, gure taldean oso ondo moldatzen gara hirurok batera eta pozik nago egindako lanarekin. Interes handiena beharbada lan handia izatearena izango da, ez genuelako hain handia den bestelako lanik egin arlo honetan.
+
+\item {\bf Jorge:} \\
+Nire ustez atazako helburu guztiak bete ditugu. Denbora asko kostatu zitzaidan arazo guztiak konpontzea, izan ere hasiera batean ez nuen oso ondo ulertzen nola zihoan metodoa (Multilayer Perceptron). Denbora asko eman nuen interneten irakurtzen eta bideoak ikusten ondo ulertu ahal izateko. Azkenean Multilayer Perceptron ekorketa oso ona egin dugu eta denbora asko behar du ekortzeko, probak egiterakoan arazo bat izan zen (Memoria, denbora...). Dokumentazioari dagokionez ere denbora asko behar izan genuen guztia prestatzeko. Diseinua egiterakoan ez genituen arazorik izan, beti bezala hasiera batean diseinua guztiok egin eta gero lana ondo banatu genuen. Gure artean oso ondo moldatzen gara eta ez dugu inolako arazorik izan taldean lana egiterakoan. \\\\Nire ustez oso praktika interesgarria izan da, guk ezagutzen ez genuen metodo bati buruz informazioa bilatu, diseinatu, inplementatu eta probak egin ditugulako. Aurreko praktiketatik ikasitakoa hobezeko ere balio izan du.
+\item {\bf Mikel:}\\
+Nire partez esan behar dut txostenean aipatzen zen guztiarekin bete dugula, baina uzte dut praktika hau ez zegoela guztiz prestatuta `Multilayer Perceptron' klasifikatzailearekin lan egiteko, ekorketa egiterakoan klase minoritarioaren `fmeasure'-rekin konparatzen genuelako eta praktika burutzerakoan ulertu dudanaren partez, modelo hau `errorRate'-arekin lan egiten du, eta ekorketa kontuan hartzea merezi zuela uzte dut. Ekorketan nahiko parametro kontuan izan ditugu, eta kontuan hartu ez ditugunak, metodoa beste era batera erabiltzeko zelako izan da.\\\\
+Dokumentazioa egiterakoan, \LaTeX{} erabili dugunez, hasieran zaila egin zaigu baina denbora joan ahala gero eta azkarrago egiten genuen, egin nahi genuen guztia lortu ez arren, eta nahiko denbora emanez lenguaia honen ``Kaixo Mundua'' ikasteko. Hala ere behar den guztia dokumentatuta geratu dela uzte dut.\\\\
+Taldean lan egiterakoan ez dugu inolako arazorik izan, beste proiektu batzuetan taldekide berak izan garelako eta badakigulako nola egiten duten besteek lan eta nola antolatu behar garen egin beharreko ataza aurrera eramateko.\\\\
+Praktika osoa kontuan hartuz, interesgarria izan dela dirudit, klasifikatzaile berri bat nola funtzionatzen den ikusi dugulako. Beste taldekideen klasifikatzaileak nola funtzionatzen duten ikasteko gurarekin geratu naiz. Eta azkenik, etorkizun batean informazioa bilatu eta ulertzeko lagungarria izan dela.
+\end{itemize}
+\end{document}
